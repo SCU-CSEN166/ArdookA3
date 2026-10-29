@@ -41,7 +41,7 @@
   - [Qwen3 VL-Embedding-8B] https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B - Sentence similarity
   - [BAAI] https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B
   - 
-- **Alternative approach:** [What will you try if the baseline underperforms?]
+- **Alternative approach:** [What will you try if the baseline underperforms?] If the baseline underperforms, we would change the evaluation criteria to see if that helps with performance. In addition to that, we can also look at more synthetic data to see if that is effective too.
 
 ### 3. Proposed data
 | Dataset/source | Link or access instructions | Purpose | Size / languages | Privacy or usage considerations |
