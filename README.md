@@ -31,6 +31,7 @@
 - **Pipeline:**
      - One model that would filter through the data (spreadsheet) and gather relevant information
          - Train + test validation --> 80% train, 20% test
+     - Potentially have the filter model turn grant information into a dictionary structure so its easier to organize evaluation factors
      - Second model takes in the filtered information to develop a score
      - Rank the score based on evaluation metrics
 - **Baseline(s):** Manually extract key information from a small set of grants into a CSV or JSON file, including funding priorities, supported activities, eligible locations, applicant types, and deadlines. Use simple rules to exclude grants that Ardook is not eligible for and flag missing eligibility information for review. Use the pretrained all-MiniLM-L6-v2 model to compare each eligible grant's priorities and activities with Ardook's verified mission and funding needs, then rank grants by cosine similarity. No model training or synthetic data is needed for this baseline. Team members will review the grants and measure how many of the top five recommendations are relevant. This baseline will provide a comparison for the later extraction and fit-assessment models.
