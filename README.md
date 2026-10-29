@@ -67,9 +67,9 @@
 | Member | Primary responsibility | Specific Weekly contribution | Planned next task |
 |---|---|---|---|
 | [Name] | [Data / models / evaluation / integration / etc.] | [Actual work completed] | [Next action] |
-| Naomi |---|---|---|
-| Olivia |---|---|---|
-| David |---|---|---|
+| Naomi |Explore models that relate to sentence similarity|Developed the problem formulation in the README|Transform the data into a value to help with ranking|
+| Olivia |Analyzing ways to extract data so that it's more readable + searching for text classification models|Worked on the pipeline and evaluation metrics in the README |Looking for existing models that transform data in a dictionary-like structure|
+| David |Developing Synthetic Data to add to the spreadsheet |Contributed to the Baseline and Proposed Data in the README|Normalizing the data|
 ---
 
 ## Week 6 — Build: Working Baseline
