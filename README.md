@@ -50,6 +50,9 @@
 | Metric / test | What it measures | How it will be calculated | Target / success criterion |
 |---|---|---|---|
 | [Metric - e.g Accuracy, F1, AoC] | [Quality dimension] | [Method/ Formula] | [Target] |
+| Accuracy | --- | ---| --- |
+| Precision | --- | ---| --- |
+| Recall | --- | ---| --- |
 
 - **Evaluation examples:** [How will you build or select a development set?]
 - **Human verification:** [If relevant, who will check outputs and how?]
