@@ -67,7 +67,9 @@
 | Member | Primary responsibility | Specific Weekly contribution | Planned next task |
 |---|---|---|---|
 | [Name] | [Data / models / evaluation / integration / etc.] | [Actual work completed] | [Next action] |
-
+| Naomi |---|---|---|
+| Olivia |---|---|---|
+| David |---|---|---|
 ---
 
 ## Week 6 — Build: Working Baseline
