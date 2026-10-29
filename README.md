@@ -29,7 +29,7 @@
 
 ### 2. Proposed technical approach
 - **Pipeline:** [List the main steps from input to output.]
-- **Baseline(s):** [Describe the simplest end-to-end method you can implement.]
+- **Baseline(s):** Manually extract key information from a small set of grants into a CSV or JSON file, including funding priorities, supported activities, eligible locations, applicant types, and deadlines. Use simple rules to exclude grants that Ardook is not eligible for and flag missing eligibility information for review. Use the pretrained all-MiniLM-L6-v2 model to compare each eligible grant's priorities and activities with Ardook's verified mission and funding needs, then rank grants by cosine similarity. No model training or synthetic data is needed for this baseline. Team members will review the grants and measure how many of the top five recommendations are relevant. This baseline will provide a comparison for the later extraction and fit-assessment models.
 - **Proposed models/tools:** [Name, purpose, and link to each Hugging Face model or other resource.]
   - [Model name](https://huggingface.co/models) — [What it will do; why selected]
   - [All-mini LM] https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2 - Sentence Similarity/transformer, 22.7M size
