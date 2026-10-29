@@ -32,7 +32,7 @@
      - One model that would filter through the data (spreadsheet) and gather relevant information
          - Train + test validation --> 80% train, 20% test
      - Potentially have the filter model turn grant information into a dictionary structure so its easier to organize evaluation factors
-     - Second model takes in the filtered information to develop a score
+     - Second model takes in the filtered information to develop a score + compare to the Ardook mission statement to see if the grants align with their values
      - Rank the score based on evaluation metrics
 - **Baseline(s):** Manually extract key information from a small set of grants into a CSV or JSON file, including funding priorities, supported activities, eligible locations, applicant types, and deadlines. Use simple rules to exclude grants that Ardook is not eligible for and flag missing eligibility information for review. Use the pretrained all-MiniLM-L6-v2 model to compare each eligible grant's priorities and activities with Ardook's verified mission and funding needs, then rank grants by cosine similarity. No model training or synthetic data is needed for this baseline. Team members will review the grants and measure how many of the top five recommendations are relevant. This baseline will provide a comparison for the later extraction and fit-assessment models.
 - **Proposed models/tools:** [Name, purpose, and link to each Hugging Face model or other resource.]
@@ -55,9 +55,10 @@
 | Metric / test | What it measures | How it will be calculated | Target / success criterion |
 |---|---|---|---|
 | [Metric - e.g Accuracy, F1, AoC] | [Quality dimension] | [Method/ Formula] | [Target] |
-| Accuracy | --- | ---| --- |
-| Precision | --- | ---| --- |
-| Recall | --- | ---| --- |
+| Accuracy | This metric will measure how close the data input is to the expected score | (TP + TN)/(TP + TN + FP + FN)| Above 60% accuracy to start, and will increase with future implementations|
+| Precision | This metric will be the ability to filter to find the good grants |TP/(TP + FP)| Above 60% correct filter identification of grants for baseline success |
+| Recall | This metric will look at how many of these good grants are actually viable | TP/(TP + FN)| Above 60% success when identifying viable grants for the baseline |
+
 
 - **Evaluation examples:** [How will you build or select a development set?]
     - Compare the data to the expected score to see if it was accurate.
