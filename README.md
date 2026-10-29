@@ -21,11 +21,11 @@
 **Deliverable during Week 6 Lab:** A project plan (write in this README file) describing your problem formulation, proposed approach, each team member's responsibilities, proposed baseline models with Hugging Face links, proposed evaluation metrics, proposed data with links, and goals for each week.
 
 ### 1. Problem formulation and social impact
-- **Problem:** What specific task are you solving? [Write a precise problem statement.]
-- **Intended users:** Who would use the system, and for what decisions or activities?
-- **Inputs and outputs:** What will the system receive and produce? Give one concrete example.
-- **Success criteria:** What would make the system useful and reliable?
-- **Constraints and risks:** [e.g., privacy, missing data, hallucinations, language coverage, human verification]
+- **Problem:** Creating an evaluation system to judge the recommendation value of a given grant opportunity. 
+- **Intended users:** Ardook will hopefully be able to utilize this process to find useful grants more easily. 
+- **Inputs and outputs:** What will the system receive and produce? Give one concrete example. The system will take in grant information files and output a value corresponding to how recommended the grant is.  
+- **Success criteria:** What would make the system useful and reliable? Multiple faucets of ranking factors (e.g. splitting up how a grant is judged into multiple qualifiers) and being able to then output a ranked list of recommended grants to apply for. 
+- **Constraints and risks:** [e.g., privacy, missing data, hallucinations, language coverage, human verification] : Given data is very small and limited, so its more than likely that synthetic data would need to be created (oversampling) to better train the model in some way. Also, there are certain features that can completely disqualify a grant in terms of eligibility, so there's a risk of the model being able to find a list of great grant opportunities that aren't actually real, or aren't eligible at all. 
 
 ### 2. Proposed technical approach
 - **Pipeline:** [List the main steps from input to output.]
