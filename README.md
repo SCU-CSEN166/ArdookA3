@@ -32,6 +32,10 @@
 - **Baseline(s):** [Describe the simplest end-to-end method you can implement.]
 - **Proposed models/tools:** [Name, purpose, and link to each Hugging Face model or other resource.]
   - [Model name](https://huggingface.co/models) — [What it will do; why selected]
+  - [All-mini LM] https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2 - Sentence Similarity/transformer, 22.7M size
+  - [Qwen3 VL-Embedding-8B] https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B - Sentence similarity
+  - [BAAI] https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B
+  - 
 - **Alternative approach:** [What will you try if the baseline underperforms?]
 
 ### 3. Proposed data
