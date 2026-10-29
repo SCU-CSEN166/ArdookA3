@@ -60,6 +60,7 @@
 | Recall | --- | ---| --- |
 
 - **Evaluation examples:** [How will you build or select a development set?]
+    - Compare the data to the expected score to see if it was accurate.
 - **Human verification:** [If relevant, who will check outputs and how?]
 - **Failure cases to watch:** [At least two anticipated risks]
 
