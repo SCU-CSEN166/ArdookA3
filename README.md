@@ -45,10 +45,10 @@
 ### 3. Proposed data
 | Dataset/source | Link or access instructions | Purpose | Size / languages | Privacy or usage considerations |
 |---|---|---|---|---|
-| [Name] | [URL](https://huggingface.co/datasets) or other instructions] | [Training/development/evaluation] | [Details] | [Notes] |
+| Ardook_Data_All_Grant_Recommendations_UPDATED_v_3.xlsx | [URL](https://drive.google.com/file/d/10EcaXrXUItPKAJwdqx6BTepwhGWMQIUn/view?usp=sharing) | Developing the baseline and evaluate recommendations using existing fit ranges | 37 opportunities, 13 columns, English | Provided from instructor.  |
 
-- **Data preparation:** [Cleaning, anonymization, annotation, splitting, deduplication, etc.]
-- **Data limitations:** [What is missing, noisy, or uncertain?]
+- **Data preparation:** Convert to CSV, standardize fit lables, check missing values and duplicates, seperate development and evaluation examples.
+- **Data limitations:** Small dataset, conditional fit labels, and potentially outdated deadlines/status. Need human verification. 
 
 ### 4. Proposed evaluation
 | Metric / test | What it measures | How it will be calculated | Target / success criterion |
