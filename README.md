@@ -29,7 +29,7 @@
 
 ### 2. Proposed technical approach
 - **Pipeline:**
-    One model that would filter through the data (spreadsheet) and gather relevant information
+     - One model that would filter through the data (spreadsheet) and gather relevant information
          - Train + test validation --> 80% train, 20% test
      - Second model takes in the filtered information to develop a score
      - Rank the score based on evaluation metrics
