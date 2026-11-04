@@ -27,13 +27,17 @@
 - **Success criteria:** What would make the system useful and reliable? Multiple faucets of ranking factors (e.g. splitting up how a grant is judged into multiple qualifiers) and being able to then output a ranked list of recommended grants to apply for. 
 - **Constraints and risks:** [e.g., privacy, missing data, hallucinations, language coverage, human verification] : Given data is very small and limited, so its more than likely that synthetic data would need to be created (oversampling) to better train the model in some way. Also, there are certain features that can completely disqualify a grant in terms of eligibility, so there's a risk of the model being able to find a list of great grant opportunities that aren't actually real, or aren't eligible at all. 
 
-### 2. Proposed technical approach
+### 2. Proposed technical approach (Info Retrieval style :D)
 - **Pipeline:**
+     - Create a similarly structured user profile for Ardook for comparison/evaluation stuff
      - One model that would filter through the data (spreadsheet) and gather relevant information
          - Train + test validation --> 80% train, 20% test
-     - Potentially have the filter model turn grant information into a dictionary structure so its easier to organize evaluation factors
-     - Second model takes in the filtered information to develop a score + compare to the Ardook mission statement to see if the grants align with their values
-     - Rank the score based on evaluation metrics
+     - E.g. data extraction-y models to be used to format additional (and/or current) grant opportunities into a spreadsheet that can be treated as a corpus, possibly using SQL(?) or some other basic dictionary format for organizing the grant information
+     - Second model takes in the data spreadsheet to develop a score + compare to the Ardook mission statement to see if the grants align with their values
+     - Rank the score based on evaluation metrics:
+            1) Eligibility (yes/no) , can be used to filter out invalid grants
+            2) Relevance, which for the baseline will likely be regarding the grant's purpose compared with Ardook's profile
+       
 - **Baseline(s):** Manually extract key information from a small set of grants into a CSV or JSON file, including funding priorities, supported activities, eligible locations, applicant types, and deadlines. Use simple rules to exclude grants that Ardook is not eligible for and flag missing eligibility information for review. Use the pretrained all-MiniLM-L6-v2 model to compare each eligible grant's priorities and activities with Ardook's verified mission and funding needs, then rank grants by cosine similarity. No model training or synthetic data is needed for this baseline. Team members will review the grants and measure how many of the top five recommendations are relevant. This baseline will provide a comparison for the later extraction and fit-assessment models.
 - **Proposed models/tools:** [Name, purpose, and link to each Hugging Face model or other resource.]
   - [Model name](https://huggingface.co/models) — [What it will do; why selected]
