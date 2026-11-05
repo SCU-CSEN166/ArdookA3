@@ -52,7 +52,7 @@
 |---|---|---|---|---|
 | Ardook_Data_All_Grant_Recommendations_UPDATED_v_3.xlsx | [URL](https://drive.google.com/file/d/10EcaXrXUItPKAJwdqx6BTepwhGWMQIUn/view?usp=sharing) | Developing the baseline and evaluate recommendations using existing fit ranges | 37 opportunities, 13 columns, English | Provided from instructor.  |
 
-- **Data preparation:** Convert to CSV, standardize fit lables, check missing values and duplicates, seperate development and evaluation examples.
+- **Data preparation:** Convert to CSV, standardize fit labels, check missing values and duplicates, seperate development and evaluation examples.
 - **Data limitations:** Small dataset, conditional fit labels, and potentially outdated deadlines/status. Need human verification. 
 
 ### 4. Proposed evaluation
@@ -65,9 +65,12 @@
 
 
 - **Evaluation examples:** [How will you build or select a development set?]
-    - Compare the data to the expected score to see if it was accurate.
+    - Compare the data to the expected score to see if it was accurate. For example, when it comes to determining the validity of grants. We can use binary classification to determine if they are valid or not. If they are valid, the grant will be added to the filtered list to check the relevance to Ardook
 - **Human verification:** [If relevant, who will check outputs and how?]
+    - One or two teammates can ckeck if the outputs are relevant based on the keywords written in the Ardook mission statement. Based on the similarity between the grant and the mission statement, we can have a treshold to determine how well they match to each other.
 - **Failure cases to watch:** [At least two anticipated risks]
+    - An anticipated risk to look out for is having an uneven balance in terms of which grants are valid and which ones are not. This could lead to overfitting if the amount of valid grants are small.
+    - Another risk to watch out for is with the relevance check in terms of matching word by word to the Ardook profile instead of the grant's overall relevance.
 
 ### 5. Team responsibilities
 | Member | Primary responsibility | Specific Weekly contribution | Planned next task |
