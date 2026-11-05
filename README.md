@@ -44,7 +44,7 @@
   - [All-mini LM] https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2 - Sentence Similarity/transformer, 22.7M size
   - [Qwen3 VL-Embedding-8B] https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B - Sentence similarity
   - [BAAI] https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B
-  - [Sim LM] https://huggingface.co/intfloat/simlm-msmarco-reranker - Test Ranking 
+  - [Sim LM] https://huggingface.co/intfloat/simlm-msmarco-reranker - Text Ranking 
 - **Alternative approach:** [What will you try if the baseline underperforms?] If the baseline underperforms, we would change the evaluation criteria to see if that helps with performance. In addition to that, we can also look at more synthetic data to see if that is effective too.
 
 ### 3. Proposed data
