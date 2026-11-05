@@ -96,13 +96,13 @@
 | Attempt / change | Worked? (Yes / Partly / No) | Evidence (output, metric, link) | What we learned / next step |
 |---|---|---|---|
 | [Attempt] | [Status] | [Evidence] | [Learning] |
-|Attempted to connect a score to the Ardook data|Partly, presents an output but all the scores are negative though|See TTP4SI_SimLM_model.ipynb in the Github |I learned that since the data is coming from the same source there could be underfitting due to the familarity in score values.|
+|Attempted to connect a score to the Ardook data |Partly, presents an output but all the scores are negative though| See TTP4SI_SimLM_model.ipynb in the Github |I learned that since the data is coming from the same source there could be underfitting due to the familarity in score values.|
 
 ### Individual contributions during that week
 | Member | What I personally implemented/tested | Result (worked / partly / failed) | Evidence (commit, PR, experiment) | Blocker / next step |
 |---|---|---|---|---|
 | [Name] | [Specific contribution] | [Status] | [Link] | [Next step] |
-| Olivia | I tried to implement relevance scoring based on the data in the ardook spreadsheet | partly | Continue to work on implentation specifically with output scores. |
+| Olivia | I tried to implement relevance scoring based on the data in the ardook spreadsheet | partly | https://colab.research.google.com/drive/17F2tcFgMOSILFkfg9LDv9CIuKJQ7tjf9?usp=sharing|Continue to work on implentation specifically with output scores. |
 
 ## Week 7 — Evaluate: Results Checkpoint
 
