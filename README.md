@@ -36,7 +36,13 @@
      - Second model takes in the data spreadsheet to develop a score + compare to the Ardook mission statement to see if the grants align with their values
      - Rank the score based on evaluation metrics:
             1) Eligibility (yes/no) , can be used to filter out invalid grants
-            2) Relevance, which for the baseline will likely be regarding the grant's purpose compared with Ardook's profile
+                 -> Eligibility will be first checked based on the following:
+                      a) Valid Location (e.g. Europe, US, country) 
+                      b) Business type (start up vs established group)
+                      c) Primary Audience (preferred recipient, e.g. women leaders, or topic-specific preferences) 
+            2) Relevance, which for the baseline will likely be regarding the grant's purpose compared with Ardook's profile(?)
+                      or:
+                           - Based on thematic relevance, e.g. some form of relevance score based on the primary audience qualifier (separately calculated)
        
 - **Baseline(s):** Manually extract key information from a small set of grants into a CSV or JSON file, including funding priorities, supported activities, eligible locations, applicant types, and deadlines. Use simple rules to exclude grants that Ardook is not eligible for and flag missing eligibility information for review. Use the pretrained all-MiniLM-L6-v2 model to compare each eligible grant's priorities and activities with Ardook's verified mission and funding needs, then rank grants by cosine similarity. No model training or synthetic data is needed for this baseline. Team members will review the grants and measure how many of the top five recommendations are relevant. This baseline will provide a comparison for the later extraction and fit-assessment models.
 - **Proposed models/tools:** [Name, purpose, and link to each Hugging Face model or other resource.]
