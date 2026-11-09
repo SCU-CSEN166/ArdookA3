@@ -102,7 +102,7 @@
 | Attempt / change | Worked? (Yes / Partly / No) | Evidence (output, metric, link) | What we learned / next step |
 |---|---|---|---|
 | [Attempt] | [Status] | [Evidence] | [Learning] |
-|Attempted to connect a score to the Ardook data |Partly, presents an output but all the scores are negative though| See TTP4SI_SimLM_model.ipynb in the Github |I learned that since the data is coming from the same source there could be underfitting due to the familarity in score values.|
+|Attempted to connect a score to the Ardook data |Partly, presents an output but all the scores are negative though| https://colab.research.google.com/drive/10tfed4YgQFChgk21SibdX6NMZlkokp6t?usp=sharing |I learned that since the data is coming from the same source there could be underfitting due to the familarity in score values.|
 
 ### Individual contributions during that week
 | Member | What I personally implemented/tested | Result (worked / partly / failed) | Evidence (commit, PR, experiment) | Blocker / next step |
