@@ -108,7 +108,7 @@
 | Member | What I personally implemented/tested | Result (worked / partly / failed) | Evidence (commit, PR, experiment) | Blocker / next step |
 |---|---|---|---|---|
 | [Name] | [Specific contribution] | [Status] | [Link] | [Next step] |
-| Olivia | I tried to implement relevance scoring based on the data in the ardook spreadsheet | partly | https://colab.research.google.com/drive/17F2tcFgMOSILFkfg9LDv9CIuKJQ7tjf9?usp=sharing|Continue to work on implentation specifically with output scores. |
+| Olivia | I tried to implement relevance scoring based on the data in the ardook spreadsheet | partly |https://colab.research.google.com/drive/10tfed4YgQFChgk21SibdX6NMZlkokp6t?usp=sharing|Continue to work on implentation specifically with output scores. |
 
 ## Week 7 — Evaluate: Results Checkpoint
 
