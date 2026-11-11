@@ -93,7 +93,9 @@
 
 ### Implementation status
 - **What runs end-to-end now?** [Describe exactly.]
+       - We currently have the inputs from the Ardook spreadsheet and were able to use fit and the text prompt to decipher the relevance score values.
 - **How to run it:** [Commands, dependencies, configuration; refer to Setup below.]
+       - 
 - **Model(s) and data actually used:** [Names, versions, links, and any changes from the plan.]
     - Used SimLM model to help with generating the relevance score: https://huggingface.co/intfloat/simlm-msmarco-reranker
         - Initially, we didn't have a clear criteria for the relevance scoring. However, now we are evaluating the relevance score based on the Ardook profile we created and some eligibility criteria including location, business type, and the intended audience.
@@ -126,7 +128,7 @@
 - **Metrics and rationale:** [Why these metrics reflect the intended use]
 - **Comparison:** [Baseline versus current approach, if different]
   - Compared to Week 6, the Week 7 code includes...
-    - SimLM model: has normalized outputs for the scores so the values are between 0 and 1, model predictions in the form of percentage values, and evaluation metrics such as accuracy, precision, and recall too.
+    - SimLM model: has normalized outputs for the scores so the values are between 0 and 1 rather than between infinity and negative infinity, model predictions in the form of percentage values, and evaluation metrics such as accuracy, precision, and recall too.
 
 | System / version | Metric 1 (Accuracy) | Metric 2 (Precision)| Metric 3 (Recall) | Notes |
 |---|---:|---:|---:|---|
@@ -148,6 +150,8 @@
 ### Individual contributions during that week
 | Member | Work completed | Result (worked / partly / failed) | Evidence | Next step |
 |---|---|---|---|---|
+| Olivia | I worked on normalizing the score values from last week, created prediction values for the model, and developed the evaluation metrics as well. | partially, the accuracy was above the goal threshold but precision and recall were not| https://colab.research.google.com/drive/17F2tcFgMOSILFkfg9LDv9CIuKJQ7tjf9?usp=sharing|Combine the results from the summarization model into the input of the SimLM model to create a single baseline. As well as, look into ways to improve the precision and recall outputs too.|
+| [Name] | [Specific work] | [Status] | [Link] | [Next step] |
 | [Name] | [Specific work] | [Status] | [Link] | [Next step] |
 
 ---
