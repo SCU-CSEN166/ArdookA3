@@ -109,6 +109,7 @@
 |---|---|---|---|---|
 | [Name] | [Specific contribution] | [Status] | [Link] | [Next step] |
 | Olivia | I tried to implement relevance scoring based on the data in the ardook spreadsheet | partly |https://colab.research.google.com/drive/10tfed4YgQFChgk21SibdX6NMZlkokp6t?usp=sharing|Continue to work on implentation specifically with output scores. |
+| Naomi | Attempted to check against core requirements in the spreadsheet against Ardook's profile via sentence similarity to try and get a relevant score | dropped/switching to different strategy | (see code) | Changing strategy- use model to identify some set of eligibility-related statements |
 
 ## Week 7 — Evaluate: Results Checkpoint
 
