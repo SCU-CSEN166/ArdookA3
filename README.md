@@ -98,7 +98,7 @@
     - Used SimLM model to help with generating the relevance score: https://huggingface.co/intfloat/simlm-msmarco-reranker
         - Initially, we didn't have a clear criteria for the relevance scoring. However, now we are evaluating the relevance score based on the Ardook profile we created and some eligibility criteria including location, business type, and the intended audience.
     - 
-- **Example 1 (SimLM):** Input: bat_di = encode(tokenizer, 'List the scores of the grant available to women entrepeneurs based on the fit', str(row[TEXT_COL]), str(row['Fit'])) → Output: see screenshot below (see TTP4SI_SimLM_model.ipynb for the full outputs)
+- **Example 1 (SimLM):** Input: bat_di = encode(tokenizer, 'List the scores of the grant available to women entrepreneurs based on the fit', str(row[TEXT_COL]), str(row['Fit'])) → Output: see screenshot below (see TTP4SI_SimLM_model.ipynb for the full outputs)
 <img width="137" height="235" alt="Screenshot 2026-11-10 at 7 25 37 PM" src="https://github.com/user-attachments/assets/5ccd526b-7b00-4b22-9f50-57e7baeee44a" />
 
   
@@ -125,15 +125,20 @@
 - **Development data:** [Source, size, selection, annotations, link or access instructions]
 - **Metrics and rationale:** [Why these metrics reflect the intended use]
 - **Comparison:** [Baseline versus current approach, if different]
+  - Compared to Week 6, the Week 7 code includes...
+    - SimLM model: has normalized outputs for the scores so the values are between 0 and 1, model predictions in the form of percentage values, and evaluation metrics such as accuracy, precision, and recall too.
 
 | System / version | Metric 1 (Accuracy) | Metric 2 (Precision)| Metric 3 (Recall) | Notes |
 |---|---:|---:|---:|---|
+| SimLM Baseline | 62.16% | 30%| 30% | The accuracy was above the 60% threshold so it was successful for the baseline. However, the precision and recall values were on the lower side. This implies that model's strength is identifying similar keywords, but when faced with comparing it to the Ardook profile that is where the model struggles to find matching grants.|
 | Baseline | [Value] | [Value] | [Value] | [Notes] |
 | Current | [Value] | [Value] | [Value] | [Notes] |
 
 ### Successes, failures, and interpretation
 | Example / category | Expected behavior | Actual behavior | Success or failure? | Likely reason |
 |---|---|---|---|---|
+| [Case] | [Expected] | [Observed] | [Status] | [Hypothesis] |
+| [Case] | [Expected] | [Observed] | [Status] | [Hypothesis] |
 | [Case] | [Expected] | [Observed] | [Status] | [Hypothesis] |
 
 - **What improved?** [Evidence]
