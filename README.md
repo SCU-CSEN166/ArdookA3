@@ -3,7 +3,7 @@
 **Team:** [A3]  
 **Challenge:** [Ardook]  
 **Team members:** [Naomi Wiesen, Olivia Desire, David Lopez-Ryan]  
-**Repository:** [Link]  
+**Repository:** [https://github.com/SCU-CSEN166/ArdookA3]  
 **Last updated:** [10/28/26]
 
 > **How to use this README:** Maintain this single file throughout the project. Complete the Week 5 project plan first, then update the appropriate weekly section before each milestone. Be specific and honest: describe what you attempted, what worked, what did not work, and what evidence supports your conclusions. For every week, document each member's actual contribution. If a task was not completed, explain the blocker and next step. Do not include private or sensitive data in this public README.
@@ -98,7 +98,9 @@
     - Used SimLM model to help with generating the relevance score: https://huggingface.co/intfloat/simlm-msmarco-reranker
         - Initially, we didn't have a clear criteria for the relevance scoring. However, now we are evaluating the relevance score based on the Ardook profile we created and some eligibility criteria including location, business type, and the intended audience.
     - 
-- **Example 1:** Input: [non-sensitive example] → Output: [result]
+- **Example 1 (SimLM):** Input: bat_di = encode(tokenizer, 'List the scores of the grant available to women entrepeneurs based on the fit', str(row[TEXT_COL]), str(row['Fit'])) → Output: <img width="137" height="235" alt="Screenshot 2026-11-10 at 7 25 37 PM" src="https://github.com/user-attachments/assets/5ccd526b-7b00-4b22-9f50-57e7baeee44a" />
+
+  
 - **Example 2:** Input: [non-sensitive example] → Output: [result]
 
 ### Attempts and outcomes
