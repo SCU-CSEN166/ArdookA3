@@ -95,7 +95,7 @@
 - **What runs end-to-end now?** [Describe exactly.]
        - We currently have the inputs from the Ardook spreadsheet and were able to use fit and the text prompt to decipher the relevance score values.
 - **How to run it:** [Commands, dependencies, configuration; refer to Setup below.]
-       - 
+
 - **Model(s) and data actually used:** [Names, versions, links, and any changes from the plan.]
     - Used SimLM model to help with generating the relevance score: https://huggingface.co/intfloat/simlm-msmarco-reranker
         - Initially, we didn't have a clear criteria for the relevance scoring. However, now we are evaluating the relevance score based on the Ardook profile we created and some eligibility criteria including location, business type, and the intended audience.
