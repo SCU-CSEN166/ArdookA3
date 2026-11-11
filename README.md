@@ -95,6 +95,9 @@
 - **What runs end-to-end now?** [Describe exactly.]
 - **How to run it:** [Commands, dependencies, configuration; refer to Setup below.]
 - **Model(s) and data actually used:** [Names, versions, links, and any changes from the plan.]
+    - Used SimLM model to help with generating the relevance score: https://huggingface.co/intfloat/simlm-msmarco-reranker
+        - Initially, we didn't have a clear criteria for the relevance scoring. However, now we are evaluating the relevance score based on the Ardook profile we created and some eligibility criteria including location, business type, and the intended audience.
+    - 
 - **Example 1:** Input: [non-sensitive example] → Output: [result]
 - **Example 2:** Input: [non-sensitive example] → Output: [result]
 
@@ -120,7 +123,7 @@
 - **Metrics and rationale:** [Why these metrics reflect the intended use]
 - **Comparison:** [Baseline versus current approach, if different]
 
-| System / version | Metric 1 | Metric 2 | Metric 3 | Notes |
+| System / version | Metric 1 (Accuracy) | Metric 2 (Precision)| Metric 3 (Recall) | Notes |
 |---|---:|---:|---:|---|
 | Baseline | [Value] | [Value] | [Value] | [Notes] |
 | Current | [Value] | [Value] | [Value] | [Notes] |
