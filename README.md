@@ -128,7 +128,7 @@
 - **Metrics and rationale:** [Why these metrics reflect the intended use]
 - **Comparison:** [Baseline versus current approach, if different]
   - Compared to Week 6, the Week 7 code includes...
-    - SimLM model: has normalized outputs for the scores so the values are between 0 and 1 rather than between infinity and negative infinity, model predictions in the form of percentage values, and evaluation metrics such as accuracy, precision, and recall too.
+    - SimLM model: has normalized outputs for the scores so the values are between 0 and 1 rather than between negative infinity and positive infinity, model predictions in the form of percentage values, and evaluation metrics such as accuracy, precision, and recall too.
 
 | System / version | Metric 1 (Accuracy) | Metric 2 (Precision)| Metric 3 (Recall) | Notes |
 |---|---:|---:|---:|---|
