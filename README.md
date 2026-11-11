@@ -120,10 +120,10 @@
 - **Metrics and rationale:** [Why these metrics reflect the intended use]
 - **Comparison:** [Baseline versus current approach, if different]
 
-| System / version | Metric 1 | Metric 2 | Notes |
-|---|---:|---:|---|
-| Baseline | [Value] | [Value] | [Notes] |
-| Current | [Value] | [Value] | [Notes] |
+| System / version | Metric 1 | Metric 2 | Metric 3 | Notes |
+|---|---:|---:|---:|---|
+| Baseline | [Value] | [Value] | [Value] | [Notes] |
+| Current | [Value] | [Value] | [Value] | [Notes] |
 
 ### Successes, failures, and interpretation
 | Example / category | Expected behavior | Actual behavior | Success or failure? | Likely reason |
