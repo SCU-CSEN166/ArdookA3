@@ -139,6 +139,10 @@
 | Baseline | [Value] | [Value] | [Value] | [Notes] |
 | Current | [Value] | [Value] | [Value] | [Notes] |
 
+Mini LM Eligibility Training- Current evaluation
+<img width="618" height="301" alt="image" src="https://github.com/user-attachments/assets/5a9a8ae2-f8a5-4af8-aece-deaaafe73fad" />
+
+
 ### Successes, failures, and interpretation
 | Example / category | Expected behavior | Actual behavior | Success or failure? | Likely reason |
 |---|---|---|---|---|
