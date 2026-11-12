@@ -1,0 +1,11 @@
+grant_id,label,reason
+1,Relevant,BGE similarity 0.637993 >= calibrated threshold 0.518063; classified Relevant.
+2,Not relevant,BGE similarity 0.515913 < calibrated threshold 0.518063; classified Not relevant.
+3,Not relevant,BGE similarity 0.517910 < calibrated threshold 0.518063; classified Not relevant.
+4,Relevant,BGE similarity 0.529717 >= calibrated threshold 0.518063; classified Relevant.
+5,Relevant,BGE similarity 0.539750 >= calibrated threshold 0.518063; classified Relevant.
+6,Relevant,BGE similarity 0.568105 >= calibrated threshold 0.518063; classified Relevant.
+7,Not relevant,BGE similarity 0.481710 < calibrated threshold 0.518063; classified Not relevant.
+8,Relevant,BGE similarity 0.618019 >= calibrated threshold 0.518063; classified Relevant.
+9,Not relevant,BGE similarity 0.517357 < calibrated threshold 0.518063; classified Not relevant.
+10,Relevant,BGE similarity 0.567728 >= calibrated threshold 0.518063; classified Relevant.

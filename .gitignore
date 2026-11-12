@@ -7,4 +7,6 @@ __pycache__/
 data/raw/*
 !data/raw/.gitkeep
 results/original_grant_rankings.csv
+Ardook_hidden_test_grants.xlsx
+Ardook Hidden Test (3).pdf
 
