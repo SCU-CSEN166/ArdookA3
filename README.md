@@ -160,25 +160,49 @@
 
 **Deliverable during Week 9 Lab:** Hidden-test results (as provided by the TA), analysis of at least three important failure cases, and a prioritized improvement plan.
 
-- **Submitted system version / commit:** [Commit hash]
-- **Hidden-test metrics and leaderboard result:** [Results, when available]
-- **Difference from development results:** [Compare; do not assume the hidden set is identical]
+- **Submitted system version / commit:** `experiment/bge-vs` / `454472f`
+- **Hidden-test metrics and leaderboard result:** No TA-provided hidden dataset or leaderboard result was available for this run. The results below are from the predefined 40-row synthetic `Test` split and must not be described as hidden-test performance.
+- **Difference from development results:** The 160 `Train` rows were not used for supervised training or query tuning. Both pretrained models were evaluated once on the same fixed test records, mission query, candidate pools, and ranking code.
+
+### Held-out synthetic stress test
+
+The experiment compared `sentence-transformers/all-MiniLM-L6-v2` with
+`BAAI/bge-small-en-v1.5`. Only `Program`, `Type`, and `Core Requirements` were
+embedded, preventing outcome labels and human-written fit conclusions from
+leaking into model input. The primary pool used an oracle filter requiring the
+ground-truth labels `Eligible` and `Open`; this left 18 candidates from the 40
+test rows and isolated thematic ranking from eligibility checking.
+
+| Model | NDCG@5 | Precision@5 | Spearman | CPU encode/rank time |
+|---|---:|---:|---:|---:|
+| all-MiniLM-L6-v2 | 0.828410 | 1.000000 | 0.581156 | 0.883772 s |
+| bge-small-en-v1.5 | 0.587034 | 0.600000 | 0.077488 | 1.373303 s |
+
+MiniLM won this synthetic held-out comparison by **0.241376 NDCG@5** and
+**0.400000 Precision@5**. MiniLM placed five Excellent/Strong grants in its
+primary top five, while BGE placed three. Raw cosine scores were not compared
+across model families because their score scales are not directly meaningful.
 
 | Failure case / category | What went wrong | Possible cause | Severity / user impact | Proposed fix |
 |---|---|---|---|---|
-| [Case 1] | [Observation] | [Hypothesis] | [Impact] | [Fix] |
-| [Case 2] | [Observation] | [Hypothesis] | [Impact] | [Fix] |
-| [Case 3] | [Observation] | [Hypothesis] | [Impact] | [Fix] |
+| Eligibility and availability | Without the oracle filter, each model's top five contained two Ineligible grants and one non-open grant. | Semantic similarity measures thematic language, not hard constraints such as geography, applicant type, or deadline status. | High: a user could spend time on an unavailable or disallowed grant. | Keep eligibility/availability as a separate verified rules or extraction stage before relevance ranking. |
+| BGE thematic ordering | BGE placed a Moderate and a Weak grant in the primary top five, lowering Precision@5 to 0.60. | The short, requirement-heavy permitted text may not contain enough neutral purpose detail; the fixed hypothetical query may also favor MiniLM's representation. | Medium: relevant grants can be displaced near the top of the review queue. | Test richer non-leaking purpose descriptions and have humans review top-ranked results. Do not tune on the held-out labels. |
+| Large model disagreement | For example, an Excellent language-access AI grant ranked #10 with MiniLM but #33 with BGE; other records moved more than 20 positions. | Embedding models emphasize different words and semantic relationships, especially when descriptions are sparse. | Medium: recommendations are unstable across reasonable model choices. | Add human relevance judgments, report rank uncertainty, and evaluate on an independently labeled real-world set. |
 
 ### Changes attempted after stress-testing
+
 | Change | Worked? (Yes / Partly / No) | Evidence | Keep, revise, or revert? |
 |---|---|---|---|
-| [Change] | [Status] | [Result] | [Decision] |
+| Strict three-field input allowlist | Yes | Twelve unit tests passed, including checks that forbidden label/status fields never enter model text. | Keep; expand only with neutral fields reviewed for leakage. |
+| Same fixed query, test split, candidate pools, and metric code | Yes | Both models ranked the identical 18-record primary pool and identical 40-record diagnostic pool. | Keep for fair comparisons. |
+| BGE retrieval instruction on the query only | Partly | It followed the BGE model guidance, but BGE still underperformed MiniLM on NDCG@5 and Precision@5. | Keep as the documented BGE configuration; do not select BGE based on this run. |
+| Unfiltered diagnostic in addition to oracle-filtered ranking | Yes | It exposed two ineligible and one non-open top-five result for each model. | Keep; use it to demonstrate why a separate eligibility stage is required. |
 
 ### Individual contributions during that week
+
 | Member | Work completed | Result (worked / partly / failed) | Evidence | Next step |
 |---|---|---|---|---|
-| [Name] | [Specific work] | [Status] | [Link] | [Next step] |
+| David | Implemented and ran the reproducible MiniLM-versus-BGE comparison; validated and joined the 200-row synthetic data by Grant ID; prevented label leakage; calculated NDCG@5, Precision@5, and Spearman; exported rankings; analyzed failures; added 12 tests and documentation. | Worked for the synthetic held-out evaluation; real-world accuracy remains unverified. | [`results/model_comparison_report.md`](results/model_comparison_report.md), [`results/model_comparison_metrics.csv`](results/model_comparison_metrics.csv), and [`tests/test_grant_comparison.py`](tests/test_grant_comparison.py) | Build a separately verified eligibility stage and obtain independent human labels for real-grant evaluation. |
 
 ---
 
@@ -230,32 +254,123 @@
 ## Setup and Reproducibility (keep updated)
 
 ### Requirements
-[Python version, libraries, compute requirements, model access]
+
+Python 3.10–3.11, CPU by default, and the pinned packages in
+`requirements.txt`. First-time execution requires network access to download the
+two Hugging Face models.
 
 ### Installation
+
 ```bash
-# Add installation commands here
+/usr/local/bin/python3.10 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
 ### Run the system
+
 ```bash
-# Add an example command here
+python -m src.compare_grant_embeddings \
+  --synthetic data/raw/Synthetic_Ardook_ML_Ready_200.csv \
+  --labels data/raw/Synthetic_Ardook_Ground_Truth_200.csv \
+  --original data/raw/Original_Ardook_Grant_Tracker_37.csv \
+  --mission config/hypothetical_mission.txt \
+  --output-dir results/
 ```
 
 ### Run evaluation
+
 ```bash
-# Add an example evaluation command here
+python -m pytest -q
 ```
 
 ### Repository structure
 ```text
 project/
 ├── README.md
+├── config/
+├── data/raw/          # local-only inputs; ignored by Git
 ├── requirements.txt
+├── results/
 ├── src/
 ├── tests/
-├── evaluation/
-└── examples/
+└── docs/
 ```
+
+## MiniLM versus BGE grant-relevance experiment
+
+This repository now includes a reproducible, CPU-first comparison of
+`sentence-transformers/all-MiniLM-L6-v2` and `BAAI/bge-small-en-v1.5`. It ranks
+grants for thematic relevance to a configurable **hypothetical** Ardook-like
+profile. It does not predict eligibility. The primary held-out comparison first
+uses an oracle filter (`Eligible` and `Open`) and then evaluates ranking quality
+with NDCG@5 and Precision@5. A separate unfiltered ranking demonstrates why
+semantic similarity cannot enforce hard grant constraints.
+
+To prevent label leakage, model text is built only from `Program`, `Type`, and
+`Core Requirements`. Labels, status, fit explanations, recommended actions,
+scenario metadata, and official-source fields are never embedded. This strict
+allowlist also limits how much neutral purpose information the models can use.
+
+The instructor-provided original tracker and local experiment CSVs are ignored
+by Git. The derived `results/original_grant_rankings.csv` is also local-only by
+default because it reproduces source descriptions. Copy authorized files into
+`data/raw/` without committing them:
+
+```bash
+cp /path/to/Synthetic_Ardook_ML_Ready_200.csv data/raw/
+cp /path/to/Synthetic_Ardook_Ground_Truth_200.csv data/raw/
+cp /path/to/Original_Ardook_Grant_Tracker_37.csv data/raw/
+```
+
+Use Python 3.10–3.11 (3.10 is tested and shown here), create an isolated environment, and
+run the tests before downloading either model:
+
+```bash
+/usr/local/bin/python3.10 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pytest -q
+```
+
+Run the fixed primary experiment (BGE's retrieval instruction is applied to its
+query only and is enabled by default):
+
+```bash
+python -m src.compare_grant_embeddings \
+  --synthetic data/raw/Synthetic_Ardook_ML_Ready_200.csv \
+  --labels data/raw/Synthetic_Ardook_Ground_Truth_200.csv \
+  --original data/raw/Original_Ardook_Grant_Tracker_37.csv \
+  --mission config/hypothetical_mission.txt \
+  --output-dir results/
+```
+
+On a machine with very little free disk space, append `--low-disk-mode`. This
+uses a task-created temporary cache for one model at a time and removes that
+cache after its scores have been retained; later runs must download the models
+again.
+
+The command validates IDs, schemas, expected label counts, missing values, and
+the predefined 160/40 split before inference. It writes metrics, filtered and
+unfiltered synthetic rankings, original-data demo rankings, and a detailed
+report under `results/`. Model loading/download time is excluded from the
+reported encode-and-rank runtime. Results are meaningful only for this synthetic
+profile and label design; real deadlines, eligibility, and organizational facts
+require official-source and human verification.
+
+### Measured result
+
+| Model | NDCG@5 | Precision@5 | Spearman |
+|---|---:|---:|---:|
+| all-MiniLM-L6-v2 | 0.828410 | 1.000000 | 0.581156 |
+| bge-small-en-v1.5 | 0.587034 | 0.600000 | 0.077488 |
+
+On the 18-candidate oracle-filtered test pool, MiniLM performed better by
+0.241376 NDCG@5 and 0.400000 Precision@5. This is a synthetic-only result, not
+proof of real-world performance. See the
+[full report](results/model_comparison_report.md) and
+[Week 8 presentation notes](docs/week8_presentation_notes.md).
 
 
