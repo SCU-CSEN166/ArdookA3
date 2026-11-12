@@ -127,17 +127,28 @@
 **Deliverable during Week 8 Lab:** Preliminary evaluation results, metrics, development-set details, and 2–3 representative successes or failures. Include what you will improve next.
 
 ### Evaluation setup
-- **Development data:** [Source, size, selection, annotations, link or access instructions]
-- **Metrics and rationale:** [Why these metrics reflect the intended use]
-- **Comparison:** [Baseline versus current approach, if different]
-  - Compared to Week 6, the Week 7 code includes...
-    - SimLM model: has normalized outputs for the scores so the values are between 0 and 1 rather than between negative infinity and positive infinity, model predictions in the form of percentage values, and evaluation metrics such as accuracy, precision, and recall too.
+- **Development data:** A 200-row synthetic grant dataset based on a hypothetical Ardook-like profile, with a predefined split of 160 `Train` and 40 `Test` rows. No supervised training or fine-tuning was performed for the MiniLM/BGE comparison.
+- **Input controls:** The embedding experiment uses only `Program`, `Type`, and `Core Requirements`. Eligibility labels, thematic-fit labels, recommendations, status fields, split metadata, and human-written fit explanations are excluded to prevent label leakage.
+- **Metrics and rationale:** NDCG@5 measures whether the highest-grade grants appear near the top in the correct order. Precision@5 measures how many of the top five are labeled Excellent or Strong. Spearman correlation measures overall agreement between similarity scores and thematic-fit grades.
+- **Comparison:** The earlier SimLM work treated the problem more like similarity classification, using accuracy, precision, and recall. The new experiment treats thematic relevance as a ranking problem and compares `all-MiniLM-L6-v2` with `bge-small-en-v1.5` under identical conditions.
+
+The existing SimLM checkpoint produced:
 
 | System / version | Metric 1 (Accuracy) | Metric 2 (Precision)| Metric 3 (Recall) | Notes |
 |---|---:|---:|---:|---|
 | SimLM Baseline | 62.16% | 30%| 30% | The accuracy was above the 60% threshold so it was successful for the baseline. However, the precision and recall values were on the lower side. This implies that model's strength is identifying similar keywords, but when faced with comparing it to the Ardook profile that is where the model struggles to find matching grants.|
-| Baseline | [Value] | [Value] | [Value] | [Notes] |
-| Current | [Value] | [Value] | [Value] | [Notes] |
+
+The embedding-ranking follow-up produced:
+
+| Model | NDCG@5 | Precision@5 | Spearman | CPU encode/rank time |
+|---|---:|---:|---:|---:|
+| all-MiniLM-L6-v2 | 0.828410 | 1.000000 | 0.581156 | 0.883772 s |
+| bge-small-en-v1.5 | 0.587034 | 0.600000 | 0.077488 | 1.373303 s |
+
+The SimLM and embedding metrics measure different tasks and should not be
+treated as a direct numerical model-to-model comparison. Within the controlled
+embedding experiment, MiniLM performed better than BGE by 0.241376 NDCG@5 and
+0.400000 Precision@5.
 
 Mini LM Eligibility Training- Current evaluation
 <img width="618" height="301" alt="image" src="https://github.com/user-attachments/assets/5a9a8ae2-f8a5-4af8-aece-deaaafe73fad" />
@@ -146,20 +157,20 @@ Mini LM Eligibility Training- Current evaluation
 ### Successes, failures, and interpretation
 | Example / category | Expected behavior | Actual behavior | Success or failure? | Likely reason |
 |---|---|---|---|---|
-| [Case] | [Expected] | [Observed] | [Status] | [Hypothesis] |
-| [Case] | [Expected] | [Observed] | [Status] | [Hypothesis] |
-| [Case] | [Expected] | [Observed] | [Status] | [Hypothesis] |
+| MiniLM primary top five | Excellent and Strong eligible/open grants should appear first. | All five top-ranked grants were Excellent or Strong, producing Precision@5 of 1.0. | Success | MiniLM represented the hypothetical mission and permitted grant descriptions effectively on this synthetic test pool. |
+| BGE primary top five | BGE should place the same highly relevant grants near the top. | BGE placed one Moderate and one Weak grant in its top five, producing Precision@5 of 0.6. | Partial failure | The short, requirement-heavy permitted text may not provide enough neutral purpose detail for BGE's representation. |
+| Unfiltered ranking | Relevant grants should rank highly, but hard constraints still need separate checking. | Both models placed two Ineligible grants and one non-open grant in their unfiltered top five. | Expected limitation | Embedding similarity measures themes, not geography, applicant restrictions, deadlines, or availability. |
+| Model stability | Reasonable embedding models should produce broadly similar rankings. | Several grants moved more than 20 positions between MiniLM and BGE. | Failure / uncertainty | The models emphasize different terms and semantic relationships, especially when descriptions are sparse. |
 
-- **What improved?** [Evidence]
-- **What did not improve?** [Evidence]
-- **Next experiment:** [Specific change and how you will measure it]
+- **What improved?** The new evaluation uses a fixed held-out split, identical candidate pools, ranking-specific metrics, deterministic ordering, explicit schema validation, and protections against label leakage. Twelve unit tests passed.
+- **What did not improve?** Neither embedding model can reliably determine eligibility or availability. The synthetic labels and hypothetical mission also do not establish performance on verified real grants.
+- **Next experiment:** Build a separate eligibility/availability stage, obtain independent human relevance judgments for real grants, and evaluate MiniLM on that set without changing the query or feature selection based on test results.
 
 ### Individual contributions during that week
 | Member | Work completed | Result (worked / partly / failed) | Evidence | Next step |
 |---|---|---|---|---|
 | Olivia | I worked on normalizing the score values from last week, created prediction values for the model, and developed the evaluation metrics as well. | partially, the accuracy was above the goal threshold but precision and recall were not| https://colab.research.google.com/drive/17F2tcFgMOSILFkfg9LDv9CIuKJQ7tjf9?usp=sharing|Combine the results from the summarization model into the input of the SimLM model to create a single baseline. As well as, look into ways to improve the precision and recall outputs too.|
-| [Name] | [Specific work] | [Status] | [Link] | [Next step] |
-| [Name] | [Specific work] | [Status] | [Link] | [Next step] |
+| David | Prepared and validated the 200-row synthetic dataset and predefined 160/40 split; implemented and ran the leakage-safe MiniLM-versus-BGE ranking evaluation; calculated NDCG@5, Precision@5, and Spearman; exported rankings; analyzed failures; and added 12 tests and reproducibility documentation. | Worked for the synthetic held-out evaluation; MiniLM outperformed BGE, but real-world accuracy remains unverified. | [`results/model_comparison_report.md`](results/model_comparison_report.md), [`results/model_comparison_metrics.csv`](results/model_comparison_metrics.csv), and [`tests/test_grant_comparison.py`](tests/test_grant_comparison.py) | Add a separately verified eligibility stage and evaluate on independently labeled real grants. |
 
 ---
 
@@ -167,49 +178,25 @@ Mini LM Eligibility Training- Current evaluation
 
 **Deliverable during Week 9 Lab:** Hidden-test results (as provided by the TA), analysis of at least three important failure cases, and a prioritized improvement plan.
 
-- **Submitted system version / commit:** `experiment/bge-vs` / `454472f`
-- **Hidden-test metrics and leaderboard result:** No TA-provided hidden dataset or leaderboard result was available for this run. The results below are from the predefined 40-row synthetic `Test` split and must not be described as hidden-test performance.
-- **Difference from development results:** The 160 `Train` rows were not used for supervised training or query tuning. Both pretrained models were evaluated once on the same fixed test records, mission query, candidate pools, and ranking code.
-
-### Held-out synthetic stress test
-
-The experiment compared `sentence-transformers/all-MiniLM-L6-v2` with
-`BAAI/bge-small-en-v1.5`. Only `Program`, `Type`, and `Core Requirements` were
-embedded, preventing outcome labels and human-written fit conclusions from
-leaking into model input. The primary pool used an oracle filter requiring the
-ground-truth labels `Eligible` and `Open`; this left 18 candidates from the 40
-test rows and isolated thematic ranking from eligibility checking.
-
-| Model | NDCG@5 | Precision@5 | Spearman | CPU encode/rank time |
-|---|---:|---:|---:|---:|
-| all-MiniLM-L6-v2 | 0.828410 | 1.000000 | 0.581156 | 0.883772 s |
-| bge-small-en-v1.5 | 0.587034 | 0.600000 | 0.077488 | 1.373303 s |
-
-MiniLM won this synthetic held-out comparison by **0.241376 NDCG@5** and
-**0.400000 Precision@5**. MiniLM placed five Excellent/Strong grants in its
-primary top five, while BGE placed three. Raw cosine scores were not compared
-across model families because their score scales are not directly meaningful.
+- **Submitted system version / commit:** [Commit hash]
+- **Hidden-test metrics and leaderboard result:** [Results, when available]
+- **Difference from development results:** [Compare; do not assume the hidden set is identical]
 
 | Failure case / category | What went wrong | Possible cause | Severity / user impact | Proposed fix |
 |---|---|---|---|---|
-| Eligibility and availability | Without the oracle filter, each model's top five contained two Ineligible grants and one non-open grant. | Semantic similarity measures thematic language, not hard constraints such as geography, applicant type, or deadline status. | High: a user could spend time on an unavailable or disallowed grant. | Keep eligibility/availability as a separate verified rules or extraction stage before relevance ranking. |
-| BGE thematic ordering | BGE placed a Moderate and a Weak grant in the primary top five, lowering Precision@5 to 0.60. | The short, requirement-heavy permitted text may not contain enough neutral purpose detail; the fixed hypothetical query may also favor MiniLM's representation. | Medium: relevant grants can be displaced near the top of the review queue. | Test richer non-leaking purpose descriptions and have humans review top-ranked results. Do not tune on the held-out labels. |
-| Large model disagreement | For example, an Excellent language-access AI grant ranked #10 with MiniLM but #33 with BGE; other records moved more than 20 positions. | Embedding models emphasize different words and semantic relationships, especially when descriptions are sparse. | Medium: recommendations are unstable across reasonable model choices. | Add human relevance judgments, report rank uncertainty, and evaluate on an independently labeled real-world set. |
+| [Case 1] | [Observation] | [Hypothesis] | [Impact] | [Fix] |
+| [Case 2] | [Observation] | [Hypothesis] | [Impact] | [Fix] |
+| [Case 3] | [Observation] | [Hypothesis] | [Impact] | [Fix] |
 
 ### Changes attempted after stress-testing
-
 | Change | Worked? (Yes / Partly / No) | Evidence | Keep, revise, or revert? |
 |---|---|---|---|
-| Strict three-field input allowlist | Yes | Twelve unit tests passed, including checks that forbidden label/status fields never enter model text. | Keep; expand only with neutral fields reviewed for leakage. |
-| Same fixed query, test split, candidate pools, and metric code | Yes | Both models ranked the identical 18-record primary pool and identical 40-record diagnostic pool. | Keep for fair comparisons. |
-| BGE retrieval instruction on the query only | Partly | It followed the BGE model guidance, but BGE still underperformed MiniLM on NDCG@5 and Precision@5. | Keep as the documented BGE configuration; do not select BGE based on this run. |
-| Unfiltered diagnostic in addition to oracle-filtered ranking | Yes | It exposed two ineligible and one non-open top-five result for each model. | Keep; use it to demonstrate why a separate eligibility stage is required. |
+| [Change] | [Status] | [Result] | [Decision] |
 
 ### Individual contributions during that week
-
 | Member | Work completed | Result (worked / partly / failed) | Evidence | Next step |
 |---|---|---|---|---|
-| David | Implemented and ran the reproducible MiniLM-versus-BGE comparison; validated and joined the 200-row synthetic data by Grant ID; prevented label leakage; calculated NDCG@5, Precision@5, and Spearman; exported rankings; analyzed failures; added 12 tests and documentation. | Worked for the synthetic held-out evaluation; real-world accuracy remains unverified. | [`results/model_comparison_report.md`](results/model_comparison_report.md), [`results/model_comparison_metrics.csv`](results/model_comparison_metrics.csv), and [`tests/test_grant_comparison.py`](tests/test_grant_comparison.py) | Build a separately verified eligibility stage and obtain independent human labels for real-grant evaluation. |
+| [Name] | [Specific work] | [Status] | [Link] | [Next step] |
 
 ---
 
@@ -378,6 +365,6 @@ On the 18-candidate oracle-filtered test pool, MiniLM performed better by
 0.241376 NDCG@5 and 0.400000 Precision@5. This is a synthetic-only result, not
 proof of real-world performance. See the
 [full report](results/model_comparison_report.md) and
-[Week 8 presentation notes](docs/week8_presentation_notes.md).
+[Week 7 presentation notes](docs/week7_presentation_notes.md).
 
 

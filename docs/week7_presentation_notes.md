@@ -1,4 +1,4 @@
-# Week 8 presentation notes — MiniLM versus BGE
+# Week 7 presentation notes — MiniLM versus BGE
 
 ## Two-to-three-minute explanation
 
