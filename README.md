@@ -136,7 +136,7 @@ The existing SimLM checkpoint produced:
 
 | System / version | Metric 1 (Accuracy) | Metric 2 (Precision)| Metric 3 (Recall) | Notes |
 |---|---:|---:|---:|---|
-| SimLM Baseline | 62.16% | 30%| 30% | The accuracy was above the 60% threshold so it was successful for the baseline. However, the precision and recall values were on the lower side. This implies that model's strength is identifying similar keywords, but when faced with comparing it to the Ardook profile that is where the model struggles to find matching grants.|
+| SimLM | 62.16% | 30%| 30% | The accuracy was above the 60% threshold so it was successful for the baseline. However, the precision and recall values were on the lower side. This implies that model's strength is identifying similar keywords, but when faced with comparing it to the Ardook profile that is where the model struggles to find matching grants.|
 
 The embedding-ranking follow-up produced:
 
@@ -157,6 +157,7 @@ Mini LM Eligibility Training- Current evaluation
 ### Successes, failures, and interpretation
 | Example / category | Expected behavior | Actual behavior | Success or failure? | Likely reason |
 |---|---|---|---|---|
+| SimLM predictions| Calculates predictions based on the relevance scores from the SimLM model | Produces predictions/percentage values for the top 10 eligible grants| Success | The reason being is that the prediction values are mainly based on the prompt of the model which influences these outputs. |
 | MiniLM primary top five | Excellent and Strong eligible/open grants should appear first. | All five top-ranked grants were Excellent or Strong, producing Precision@5 of 1.0. | Success | MiniLM represented the hypothetical mission and permitted grant descriptions effectively on this synthetic test pool. |
 | BGE primary top five | BGE should place the same highly relevant grants near the top. | BGE placed one Moderate and one Weak grant in its top five, producing Precision@5 of 0.6. | Partial failure | The short, requirement-heavy permitted text may not provide enough neutral purpose detail for BGE's representation. |
 | Unfiltered ranking | Relevant grants should rank highly, but hard constraints still need separate checking. | Both models placed two Ineligible grants and one non-open grant in their unfiltered top five. | Expected limitation | Embedding similarity measures themes, not geography, applicant restrictions, deadlines, or availability. |
