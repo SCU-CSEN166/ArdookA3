@@ -171,9 +171,9 @@ embedding experiment, MiniLM performed better than BGE by 0.241376 NDCG@5 and
 
 **Deliverable during Week 9 Lab:** Hidden-test results (as provided by the TA), analysis of at least three important failure cases, and a prioritized improvement plan.
 
-- **Submitted system version / commit:** `experiment/bge-vs` / `02ffe7e`
-- **Hidden-test metrics and leaderboard result:** BGE predictions were submitted for all 10 grants, but the professor's expected labels were not included. Hidden accuracy, precision, recall, and F1 are therefore pending label release and are not fabricated here. BGE predicted 6 Relevant/Good and 4 Not relevant/Bad.
-- **Difference from development results:** The binary threshold `0.518063154` was selected only from the 160 synthetic `Train` rows, with Relevant defined as Eligible plus Excellent/Strong thematic fit. Synthetic calibration was weak (accuracy `0.468750`, precision `0.458599`, recall `1.000000`, F1 `0.628821`), showing that one BGE similarity threshold does not model combined eligibility and fit reliably.
+- **Submitted system version / commit:** `experiment/bge-vs`; prediction commit `02ffe7e`, released-label evaluation commit `ab365cd`
+- **Hidden-test metrics and leaderboard result:** After the professor released the labels, BGE achieved **70.0% accuracy, 66.7% precision, 80.0% recall, and 72.7% F1**, with Good as the positive class. The confusion matrix contains 4 true positives, 2 false positives, 3 true negatives, and 1 false negative.
+- **Difference from development results:** The binary threshold `0.518063154` was selected only from the 160 synthetic `Train` rows, where calibration produced accuracy `0.468750`, precision `0.458599`, recall `1.000000`, and F1 `0.628821`. On the hidden set, accuracy, precision, and F1 were higher, while recall decreased because one truly Good grant fell below the threshold. The small 10-grant sample and synthetic-to-real transfer prevent broad generalization.
 
 ### Hidden-test submission
 
@@ -182,29 +182,34 @@ and `Core Requirements`; deadlines and current status were excluded as directed.
 Scores at or above the frozen threshold map to Relevant/Good, and lower scores
 map to Not relevant/Bad.
 
-| Grant ID | BGE binary prediction |
-|---:|---|
-| 1 | Relevant / Good |
-| 2 | Not relevant / Bad |
-| 3 | Not relevant / Bad |
-| 4 | Relevant / Good |
-| 5 | Relevant / Good |
-| 6 | Relevant / Good |
-| 7 | Not relevant / Bad |
-| 8 | Relevant / Good |
-| 9 | Not relevant / Bad |
-| 10 | Relevant / Good |
+| Grant ID | BGE prediction | Released label | Correct? |
+|---:|---|---|---|
+| 1 | Good | Good | Yes |
+| 2 | Bad | Bad | Yes |
+| 3 | Bad | Bad | Yes |
+| 4 | Good | Good | Yes |
+| 5 | Good | Good | Yes |
+| 6 | Good | Bad | No — false positive |
+| 7 | Bad | Good | No — false negative |
+| 8 | Good | Bad | No — false positive |
+| 9 | Bad | Bad | Yes |
+| 10 | Good | Good | Yes |
 
 The TA-format submission is in
 [`results/hidden_test_outputs.csv`](results/hidden_test_outputs.csv), and the
 method, scores, threshold, and limitations are in the
-[`BGE hidden-test report`](results/bge_hidden_test_report.md).
+[`BGE hidden-test report`](results/bge_hidden_test_report.md). The verified
+[`confusion matrix`](results/hidden_test_bge_confusion_matrix.csv),
+[`evaluation metrics`](results/hidden_test_bge_evaluation_metrics.csv),
+[`per-grant label comparison`](results/hidden_test_bge_label_comparison.csv),
+and [`evaluation report`](results/bge_hidden_test_evaluation_report.md) were
+generated after label release.
 
 | Failure case / category | What went wrong | Possible cause | Severity / user impact | Proposed fix |
 |---|---|---|---|---|
-| Eligibility encoded as similarity | The synthetic calibration produced 85 false positives and only 3 true negatives. | A semantic embedding can recognize topical fit but does not enforce hard organization, geography, ownership, or revenue restrictions. | High: ineligible grants may be labeled Relevant. | Add a verified eligibility rules/extraction stage before BGE relevance scoring. |
-| Near-threshold predictions | Grants 2, 3, and 9 were within about 0.0022 of the threshold, so small representation changes could flip their labels. | The binary boundary is estimated from synthetic examples and the score distributions overlap. | Medium: several decisions are unstable and should not be treated as confident. | Report confidence margins and send borderline cases to human review. |
-| Synthetic-to-hidden transfer | The threshold was calibrated on synthetic Train labels but applied to professor-selected real grant descriptions. | Synthetic language and label design may not match real opportunities. | High: development performance may not predict hidden performance. | Recalculate hidden accuracy, precision, recall, and F1 when expected labels are released, then analyze every error without retroactively tuning this submission. |
+| Grant 6 false positive | IOM ELEVATE was predicted Good but labeled Bad because it is restricted to SMEs in specific Armenian border regions. | BGE recognized business and vulnerable-group language but did not enforce the geographic eligibility constraint. | High: the system can recommend grants Ardook cannot apply for. | Add a verified rules/extraction stage for geography and applicant type before semantic ranking. |
+| Grant 8 false positive | D-Prize was predicted Good but labeled Bad because it funds distribution of proven poverty interventions rather than AI/data products. | Broad social-impact similarity outweighed the more specific mismatch in funded activity. | Medium: thematic overlap can hide a program-purpose mismatch. | Represent required activities separately and require both eligibility and purpose fit. |
+| Grant 7 false negative | TiE Women was predicted Bad but labeled Good; its score `0.481710` fell below the synthetic threshold. | The synthetic calibration threshold did not transfer perfectly to a real woman-founded startup competition. | Medium: a viable opportunity could be missed. | Send low-margin cases to human review and recalibrate only on future labeled development data, not this submitted test set. |
 
 ### Changes attempted after stress-testing
 | Change | Worked? (Yes / Partly / No) | Evidence | Keep, revise, or revert? |
@@ -212,11 +217,12 @@ method, scores, threshold, and limitations are in the
 | BGE-only binary threshold calibrated before hidden inference | Partly | Produced all 10 required binary predictions, but synthetic calibration accuracy was only 46.9%. | Keep as the submitted baseline; replace with a two-stage eligibility-plus-relevance design later. |
 | Ignore deadlines and status | Yes | Neither field enters the BGE document text, matching the professor's instructions. | Keep for this hidden evaluation. |
 | TA-compatible `grant_id,label,reason` output | Yes | `results/hidden_test_outputs.csv` contains exactly IDs 1–10 and Relevant/Not relevant labels. | Keep for grading. |
+| Released-label evaluation | Yes | Joined predictions and labels by grant ID and computed a 4 TP / 2 FP / 3 TN / 1 FN confusion matrix plus accuracy, precision, recall, and F1. | Keep; use the three errors to design the next eligibility-plus-fit system. |
 
 ### Individual contributions during that week
 | Member | Work completed | Result (worked / partly / failed) | Evidence | Next step |
 |---|---|---|---|---|
-| David | Implemented the BGE-only hidden-test classifier, calibrated a binary threshold without using hidden labels, classified all 10 grants, exported TA-compatible predictions, added tests, and documented the weak calibration honestly. | Completed; hidden correctness metrics are pending the professor's expected labels. | [`results/hidden_test_outputs.csv`](results/hidden_test_outputs.csv), [`results/bge_hidden_test_report.md`](results/bge_hidden_test_report.md), and [`tests/test_hidden_bge.py`](tests/test_hidden_bge.py) | Compute accuracy, precision, recall, and F1 after label release and add a separate eligibility checker. |
+| David | Implemented the BGE-only hidden-test classifier, calibrated its threshold without hidden labels, submitted all 10 predictions, joined the released labels by grant ID, computed the confusion matrix and verified metrics, and analyzed all three errors. | Completed; BGE classified 7 of 10 correctly, with 70.0% accuracy and 72.7% F1. | [`results/hidden_test_outputs.csv`](results/hidden_test_outputs.csv), [`results/hidden_test_bge_label_comparison.csv`](results/hidden_test_bge_label_comparison.csv), and [`results/bge_hidden_test_evaluation_report.md`](results/bge_hidden_test_evaluation_report.md) | Add a separate eligibility checker and human review for borderline cases. |
 
 ---
 
