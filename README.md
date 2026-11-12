@@ -171,25 +171,52 @@ embedding experiment, MiniLM performed better than BGE by 0.241376 NDCG@5 and
 
 **Deliverable during Week 9 Lab:** Hidden-test results (as provided by the TA), analysis of at least three important failure cases, and a prioritized improvement plan.
 
-- **Submitted system version / commit:** [Commit hash]
-- **Hidden-test metrics and leaderboard result:** [Results, when available]
-- **Difference from development results:** [Compare; do not assume the hidden set is identical]
+- **Submitted system version / commit:** `experiment/bge-vs` / `02ffe7e`
+- **Hidden-test metrics and leaderboard result:** BGE predictions were submitted for all 10 grants, but the professor's expected labels were not included. Hidden accuracy, precision, recall, and F1 are therefore pending label release and are not fabricated here. BGE predicted 6 Relevant/Good and 4 Not relevant/Bad.
+- **Difference from development results:** The binary threshold `0.518063154` was selected only from the 160 synthetic `Train` rows, with Relevant defined as Eligible plus Excellent/Strong thematic fit. Synthetic calibration was weak (accuracy `0.468750`, precision `0.458599`, recall `1.000000`, F1 `0.628821`), showing that one BGE similarity threshold does not model combined eligibility and fit reliably.
+
+### Hidden-test submission
+
+Only `BAAI/bge-small-en-v1.5` was used. The model received `Program`, `Type`,
+and `Core Requirements`; deadlines and current status were excluded as directed.
+Scores at or above the frozen threshold map to Relevant/Good, and lower scores
+map to Not relevant/Bad.
+
+| Grant ID | BGE binary prediction |
+|---:|---|
+| 1 | Relevant / Good |
+| 2 | Not relevant / Bad |
+| 3 | Not relevant / Bad |
+| 4 | Relevant / Good |
+| 5 | Relevant / Good |
+| 6 | Relevant / Good |
+| 7 | Not relevant / Bad |
+| 8 | Relevant / Good |
+| 9 | Not relevant / Bad |
+| 10 | Relevant / Good |
+
+The TA-format submission is in
+[`results/hidden_test_outputs.csv`](results/hidden_test_outputs.csv), and the
+method, scores, threshold, and limitations are in the
+[`BGE hidden-test report`](results/bge_hidden_test_report.md).
 
 | Failure case / category | What went wrong | Possible cause | Severity / user impact | Proposed fix |
 |---|---|---|---|---|
-| [Case 1] | [Observation] | [Hypothesis] | [Impact] | [Fix] |
-| [Case 2] | [Observation] | [Hypothesis] | [Impact] | [Fix] |
-| [Case 3] | [Observation] | [Hypothesis] | [Impact] | [Fix] |
+| Eligibility encoded as similarity | The synthetic calibration produced 85 false positives and only 3 true negatives. | A semantic embedding can recognize topical fit but does not enforce hard organization, geography, ownership, or revenue restrictions. | High: ineligible grants may be labeled Relevant. | Add a verified eligibility rules/extraction stage before BGE relevance scoring. |
+| Near-threshold predictions | Grants 2, 3, and 9 were within about 0.0022 of the threshold, so small representation changes could flip their labels. | The binary boundary is estimated from synthetic examples and the score distributions overlap. | Medium: several decisions are unstable and should not be treated as confident. | Report confidence margins and send borderline cases to human review. |
+| Synthetic-to-hidden transfer | The threshold was calibrated on synthetic Train labels but applied to professor-selected real grant descriptions. | Synthetic language and label design may not match real opportunities. | High: development performance may not predict hidden performance. | Recalculate hidden accuracy, precision, recall, and F1 when expected labels are released, then analyze every error without retroactively tuning this submission. |
 
 ### Changes attempted after stress-testing
 | Change | Worked? (Yes / Partly / No) | Evidence | Keep, revise, or revert? |
 |---|---|---|---|
-| [Change] | [Status] | [Result] | [Decision] |
+| BGE-only binary threshold calibrated before hidden inference | Partly | Produced all 10 required binary predictions, but synthetic calibration accuracy was only 46.9%. | Keep as the submitted baseline; replace with a two-stage eligibility-plus-relevance design later. |
+| Ignore deadlines and status | Yes | Neither field enters the BGE document text, matching the professor's instructions. | Keep for this hidden evaluation. |
+| TA-compatible `grant_id,label,reason` output | Yes | `results/hidden_test_outputs.csv` contains exactly IDs 1–10 and Relevant/Not relevant labels. | Keep for grading. |
 
 ### Individual contributions during that week
 | Member | Work completed | Result (worked / partly / failed) | Evidence | Next step |
 |---|---|---|---|---|
-| [Name] | [Specific work] | [Status] | [Link] | [Next step] |
+| David | Implemented the BGE-only hidden-test classifier, calibrated a binary threshold without using hidden labels, classified all 10 grants, exported TA-compatible predictions, added tests, and documented the weak calibration honestly. | Completed; hidden correctness metrics are pending the professor's expected labels. | [`results/hidden_test_outputs.csv`](results/hidden_test_outputs.csv), [`results/bge_hidden_test_report.md`](results/bge_hidden_test_report.md), and [`tests/test_hidden_bge.py`](tests/test_hidden_bge.py) | Compute accuracy, precision, recall, and F1 after label release and add a separate eligibility checker. |
 
 ---
 
