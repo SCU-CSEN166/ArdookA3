@@ -1,0 +1,12 @@
+metric,value
+accuracy,0.700000
+precision_good,0.666667
+recall_good,0.800000
+f1_good,0.727273
+specificity_bad,0.600000
+negative_predictive_value,0.750000
+true_positive,4
+false_positive,2
+true_negative,3
+false_negative,1
+evaluated_grants,10

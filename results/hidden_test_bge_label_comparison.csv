@@ -1,0 +1,11 @@
+grant_id,program,bge_score,threshold,predicted_class,actual_class,correct,error_type,actual_reason
+1,Cisco Global Problem Solver Challenge 2027,0.637992507,0.518063154,Good,Good,Yes,True positive,Early-stage tech-for-good startup; Ardook Data's AI/data work has a social-impact mission
+2,Women's Fund Armenia - Small Grants for Women-Led Initiatives in Aragatsotn,0.515913066,0.518063154,Bad,Bad,Yes,True negative,"Only for women-led groups in Aragatsotn Province, Armenia"
+3,Tory Burch Foundation Fellows Program,0.517910185,0.518063154,Bad,Bad,Yes,True negative,"Requires an established business with at least USD 75K in annual revenue; Ardook Data is a new, early-stage startup"
+4,AWS Activate (Founders tier),0.529716806,0.518063154,Good,Good,Yes,True positive,Early-stage startup with a website; credits support its AI/data product (similar to NVIDIA Inception)
+5,Women Founders Network Fast Pitch 2027,0.539749733,0.518063154,Good,Good,Yes,True positive,"U.S.-based, woman-led, for-profit early-stage tech startup; pre-revenue allowed"
+6,IOM ELEVATE Business Grants,0.568105434,0.518063154,Good,Bad,No,False positive,Only for SMEs in specific Armenian border regions
+7,TiE Women Global Pitch Competition 2026,0.481710238,0.518063154,Bad,Good,No,False negative,"Woman-founded, early-stage startup with a validated offering; equity-free prize"
+8,D-Prize Global Competition,0.618018839,0.518063154,Good,Bad,No,False positive,"For new ventures distributing proven poverty interventions, not AI/data products"
+9,People in Need - Grant Call for Armenian Civil Society Organisations,0.517357043,0.518063154,Bad,Bad,Yes,True negative,Only for civil society organizations outside Yerevan; Ardook Data is a for-profit startup
+10,Women Who Tech - Tech Startup Grant,0.567727994,0.518063154,Good,Good,Yes,True positive,Equity-free grants for women-led tech startups
