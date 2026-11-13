@@ -96,7 +96,7 @@
        - We currently have the inputs from the Ardook spreadsheet and were able to use fit and the text prompt to decipher the relevance score values.
 - **How to run it:** [Commands, dependencies, configuration; refer to Setup below.]
       -  Download the files from github
-     - When it comes to TTP4SI_SimLM_model, use Google Colab to run with CPU or GPU computing resources. Also make sure to change the file path, before running the code
+     - When it comes to TTP4SI_SimLM_model, use Google Colab to run with CPU computing resources. Also make sure to change the file path, before running the code
      - <img width="845" height="83" alt="Screenshot 2026-11-12 at 1 57 00 PM" src="https://github.com/user-attachments/assets/938e43bc-7281-4337-95d3-73f553d71db1" />
 
 - **Model(s) and data actually used:** [Names, versions, links, and any changes from the plan.]
