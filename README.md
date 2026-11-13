@@ -182,6 +182,7 @@ Mini LM Eligibility Training- Current evaluation
 - **Submitted system version / commit:** [Commit hash]
 - **Hidden-test metrics and leaderboard result:** [Results, when available]
 - **Difference from development results:** [Compare; do not assume the hidden set is identical]
+- David will add failure cases from evaluation report for hidden tests
 
 | Failure case / category | What went wrong | Possible cause | Severity / user impact | Proposed fix |
 |---|---|---|---|---|
