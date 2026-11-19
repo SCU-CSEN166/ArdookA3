@@ -215,22 +215,22 @@ Mini LM Eligibility Training- Current evaluation
 - **Feedback received from another team:** [Summary]
 
 ### Responsible AI assessment
-- **Potential harms or affected users:** [Who could be affected and how?]
-- **Privacy and data handling:** [How sensitive information is protected]
-- **Reliability and unsupported claims:** [How outputs are verified or uncertainty is communicated]
-- **Fairness, accessibility, and usability:** [Relevant concerns and tests]
-- **Human oversight:** [Where a human should review or correct outputs]
-- **Remaining limitations:** [What should not be trusted or deployed yet]
+- **Potential harms or affected users:** A false positive could cause Ardook to waste time on an ineligible grant, while a false negative could hide a useful opportunity. The BGE hidden test produced two false positives and one false negative.
+- **Privacy and data handling:** The instructor-provided hidden workbooks remain local and are not included in this Week 9 change. The README references only the existing evaluation summary.
+- **Reliability and unsupported claims:** BGE correctly classified 7 of 10 hidden grants, which is useful evidence but too small a sample for a broad real-world accuracy claim.
+- **Fairness, accessibility, and usability:** Restrictions involving location, organization type, ownership, and revenue must be checked explicitly instead of inferred from general semantic similarity.
+- **Human oversight:** A person should verify the official grant source and all eligibility requirements before acting on a recommendation.
+- **Remaining limitations:** BGE combines thematic similarity and eligibility into one score, even though they are different decisions. A separate eligibility stage is still needed.
 
 ### Final improvements and outcomes
 | Feedback / issue | Change made | Worked? (Yes / Partly / No) | Evidence | Remaining limitation |
 |---|---|---|---|---|
-| [Issue] | [Change] | [Status] | [Link or metric] | [Limitation] |
+| BGE missed hard eligibility restrictions | Added a Responsible AI review and proposed checking eligibility before semantic ranking | Yes as a documented safety improvement | [`bge_hidden_test_evaluation_report.md`](bge_hidden_test_evaluation_report.md): 2 false positives and 1 false negative | The separate eligibility checker still needs to be implemented and tested |
 
 ### Individual contributions during that week
 | Member | Final implementation / evaluation / documentation contribution | Result (worked / partly / failed) | Evidence | Reflection / remaining work |
 |---|---|---|---|---|
-| [Name] | [Specific work] | [Status] | [Link] | [Reflection] |
+| David | Reviewed the BGE hidden-test errors, documented potential harms and model limitations, and defined where human review is required. | Completed | [`bge_hidden_test_evaluation_report.md`](bge_hidden_test_evaluation_report.md) | Similarity ranking should be combined with a separately tested eligibility stage. |
 
 
 
