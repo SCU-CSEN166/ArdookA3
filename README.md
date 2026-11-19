@@ -208,11 +208,12 @@ Mini LM Eligibility Training- Current evaluation
 **Deliverable during Week 10 Lab:** Document peer-testing feedback, Responsible AI concerns, changes made in response, and the final runnable system. Submit the final project report as instructed.
 
 ### Peer testing
-- **Team evaluated:** [Team ID]
-- **One thing that worked well:** [Evidence]
-- **One meaningful failure:** [Reproduction steps or example]
-- **One actionable recommendation:** [Specific fix]
-- **Feedback received from another team:** [Summary]
+- **Team evaluated:** ArdookA2
+- **One thing that worked well:** One thing that worked well is that when testing the model with the synthetic data. Their model was more accurate when it comes to NCDG@5 results. 
+- **One meaningful failure:**   A meaningful failure is that when we initially tested the local frontend it said that the model didn’t exist.
+- **One actionable recommendation:** One actionable recommendation is to have clear instructions on how to run the local frontend all in one place within the readme so it's easier to access. They should have step by step instructions starting from cloning the repo going all the way to access the front end, specifically they should mention how to open the frontend when the model is already installed.
+- **Feedback received from another team:** The instructions were clear and the models mainly ran smoothly. However, when they tried to test it with the  synthetic data for the eligibility portion of our project, there was no output or there were no logs it only errored out. In addition to that, they mentioned that when using Wave it takes time when it comes to reserving GPU computing resources. An area of improvement is to make our program more universal when it comes to the types of inputs the data takes.
+
 
 ### Responsible AI assessment
 - **Potential harms or affected users:** A false positive could cause Ardook to waste time on an ineligible grant, while a false negative could hide a useful opportunity. The BGE hidden test produced two false positives and one false negative.
