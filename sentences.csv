@@ -1,0 +1,217 @@
+grant_id,sentence,location,business_type,audience,hard_neg,kind
+grant3Test,Open to women (18 years or older) whose business is at least 50% women-owned and based in the United States or Canada.,1,1,1,0,
+grant3Test,"Eligible businesses include pre-revenue ventures, idea-stage startups, and revenue-generating nonprofit organizations.",0,1,1,0,
+grant3Test,Nonprofits whose primary activity is charitable giving are not eligible.,0,1,0,0,
+grant3Test,Applicants must complete the official online application.,0,0,0,0,
+grantTest,Women TechEU targets early-stage women-led deep tech startups.,0,1,1,0,
+grantTest,"specific criteria and conditions are outlined, establishing eligibility for potential",0,0,0,0,
+grantTest,Here are the key definitions that guide the selection of beneficiaries:,0,0,0,0,
+grantTest,The founder or co-founder must be the woman and will (if selected) participate,0,1,1,0,
+grantTest,We consider a woman co-founder if she acquired shares,0,0,1,0,
+grantTest,from the company within one year from the date of registration of the company.,0,1,0,0,
+grantTest,2.Women leadership: Women legally recognised as founders or co-founders of,0,0,1,0,
+grantTest,the company (see above).,0,0,0,0,
+grantTest,The founder or co-founder of the company must,0,0,0,0,
+grantTest,"also currently hold a top management position (CEO, CTO, CSO or equivalent)",0,1,1,0,
+grantTest,within the same company.,0,0,0,0,
+grantTest,It will be also required that women hold at least 25%,0,0,1,0,
+grantTest,of the shares in the CAP table (capitalisation table) of the company.,0,1,0,0,
+grantTest,completing the CAP table if the founder or investor is a holding company owned,0,1,0,0,
+grantTest,"by a single woman, please enter gender as woman, otherwise, select",0,0,1,0,
+grantTest,Guidelines for applicants: Eligibility Strand,0,0,0,0,
+grantTest,Project 101268687 Women TechEU 2 EIC - HORIZON-EIC-2025-WOMENTECH 12,0,0,0,0,
+grantTest,3.Established country: the applicant must be established in an EU Member State,1,0,0,0,
+grantTest,and their outermost regions or Horizon Europe Associated Country*.,1,0,0,0,
+grantTest,List of Horizon Europe Associated Countries as published by the European,0,0,0,0,
+grantTest,Commission on the submission date when the applicants submit their eligibility,0,0,0,0,
+grantTest,"Eligible EU countries: Austria, Belgium, Bulgaria, Croatia, Republic of Cyprus, Czech",1,0,0,0,
+grantTest,"Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy,",1,0,0,0,
+grantTest,"Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia,",1,0,0,0,
+grantTest,"Slovenia, Spain and Sweden.",1,0,0,0,
+grantTest,"Eligible associated countries: Albania, Armenia, Bosnia and Herzegovina, Egypt, Faroe",1,0,0,0,
+grantTest,"Islands, Georgia, Iceland, Israel, Kosovo, Moldova, Montenegro, North Macedonia,",1,0,0,0,
+grantTest,"Norway, Serbia, Switzerland, Tunisia, Türkiye, Ukraine and United Kingdom.",1,0,0,0,
+grantTest,The legal entity must be registered for a minimum of six months and a,0,1,0,0,
+grantTest,maximum of five years at the time of the eligibility cut-off date they are,0,1,0,0,
+grantTest,"Under Horizon Europe, a 'startup' should be understood as an SME in the",0,1,0,0,
+grantTest,"early stage of its life cycle, including those that are created as spin-offs",0,0,0,0,
+grantTest,"from university research activities, which aims to find innovative",0,0,0,0,
+grantTest,"solutions and scalable business models, and which is autonomous within",0,1,0,0,
+grantTest,the meaning of Article 3 of the Annex to EU recommendation 2003/361:,0,0,0,0,
+grantTest," An ""autonomous enterprise"" is any enterprise which is not classified as a partner enterprise within the meaning of paragraph 2 or as a linked enterprise within the meaning of paragraph 3",0,1,0,0,
+grantTest,▪ Employs fewer than 250 persons,0,1,0,0,
+grantTest,"▪ Has an annual turnover not exceeding EUR 50 million, or an annual",0,1,0,0,
+grantTest,balance sheet total not exceeding EUR 43 million,0,1,0,0,
+grantTest, Early-stage refers to the phase of startup development,0,1,0,0,
+grantTest,generally preceding the rapid growth phase.,0,0,0,0,
+grantTest,"indication, the following criteria will be considered,",0,0,0,0,
+grantTest,amongst other to define an early-stage startup:,0,1,0,0,
+grantTest,Guidelines for applicants: Eligibility Strand,1,0,0,0,
+grantTest,Project 101268687 Women TechEU 2 EIC - HORIZON-EIC-2025-WOMENTECH 13,0,0,0,0,
+grantTest,Startups that have been established and operating for not more than 5,0,1,0,0,
+grantTest,years counting backwards from the eligibility cut-off date they are,0,1,0,0,
+grantTest,"Startups that have raised limited funding (less than 1M € in equity), and",0,1,1,0,
+grantTest,"Startups are before reaching a high fidelity Minimum Viable Product,",0,1,1,0,
+grantTest,currently in a development stage between TRL4 and TRL6 (both,0,1,0,0,
+grantTest,Check this Self-assessment tool if you’re unsure of your TRL,0,0,0,0,
+grantTest,Deep tech: Deep tech innovation aims to provide concrete solutions to our,0,0,1,0,
+grantTest,societal problems by finding its source in a deep interaction with the most recent,0,0,1,0,
+grantTest,scientific and technological advances and by seeking to produce a profound,0,0,0,0,
+grantTest,impact in the targeted application areas.,1,0,0,0,
+grantTest,"Sectors, which are most fertile for deep",0,0,0,0,
+grantTest,Advanced Computing /Quantum Computing,0,0,1,0,
+grantTest,"Aerospace, Automotive and Remote Sensing",0,0,1,0,
+grantTest,"Artificial Intelligence and Machine Learning, including Big Data",0,0,1,0,
+grantTest,"Biotechnology, Life Sciences and Agritech",0,0,1,0,
+grantTest,"Communications and Networks, including 5G/6G",0,0,1,0,
+grantTest,Cybersecurity and Data Protection,0,0,1,0,
+grantTest,"Internet of Things, W3C, Semantic Web",0,0,1,0,
+grantTest,"Sustainable Energy, Clean Technologies and Greentech",0,0,1,0,
+grantTest,"Virtual Reality, Augmented Reality, Metaverse",0,0,1,0,
+grantTest,"Web 3.0, including Blockchain, Distributed Ledgers, NFTs",0,0,1,0,
+grantTest,Women TechEU welcomes applications from all deep tech fields of activity.,0,0,1,0,
+grantTest,Using technology and being a deep tech company are very different concepts.,0,0,1,0,
+grantTest,"startup which is adopting industry standard technologies or modifying content,",0,1,1,0,
+grantTest,Guidelines for applicants: Eligibility Strand,0,1,0,0,
+grantTest,Project 101268687 Women TechEU 2 EIC - HORIZON-EIC-2025-WOMENTECH 14,0,0,0,0,
+grantTest,"materials, integration of existing components etc, does not meet the definition of a",0,0,0,1,
+grantTest,"For way of example, the following are NOT deep tech:",0,0,0,1,
+grantTest,o eLearning platforms where the content is the innovative part and not the,0,1,0,1,
+grantTest,o eCommerce apps where the innovation is the business model/pricing,0,1,0,1,
+grantTest,and not the technology.,0,1,0,1,
+grantTest,o Gaming apps which use industry standard components.,0,1,0,1,
+grantTest,o Online information portals where the news and articles are the innovative,0,1,0,1,
+grantTest,"If your deep tech innovation includes AI, please note that the stage of development of",0,1,0,0,
+grantTest,your AI will be the determining factor of whether you are eligible or not for the Women,1,1,1,0,
+grantTest,There are 7 stages identified as follows:,0,1,0,0,
+grantTest,Training of AI model with dataset,0,1,0,0,
+grantTest,Testing / piloting of trained AI model,0,1,0,0,
+grantTest,Refinement of AI model post testing / piloting,0,1,0,0,
+grantTest,"Choosing stages (a), (b) or (c) will make your application ineligible as this would",1,0,0,0,
+grantTest,mean that you are still too early in the actual AI development.,0,0,0,0,
+grantTest2,Eligibility: The Sweepstakes is open only to qualifying small and medium sized businesses,0,1,0,0,
+grantTest2,that meet the following requirements and may not be listed in the ineligible businesses below,0,1,0,0,
+grantTest2,"In these Official Rules, the words “you,” “your,” ""Merchant,"" and “Business” also refer",0,0,0,0,
+grantTest2,The owner of the Business must be a legal resident of the fifty (50) United States or the,1,1,0,0,
+grantTest2,District of Columbia at the time of application.,1,0,0,0,
+grantTest2,The owner of the Business must be at least eighteen (18) years of age at the time of,0,1,0,0,
+grantTest2,The owner of the Business must be an authorized agent of the Business.,0,1,0,0,
+grantTest2,The Business must be domiciled in the fifty (50) United States or the District of,1,1,0,0,
+grantTest2,Columbia at the time of application.,1,0,0,0,
+grantTest2,"If the Business is a subsidiary of another larger business, the subsidiary and its parent",0,1,0,0,
+grantTest2,company must be a U.S.,1,1,0,0,
+grantTest2,owned and based entity.,0,1,1,0,
+grantTest2,The Business must be for-profit and in continuous operation selling a product or,0,1,0,0,
+grantTest2,service for not less than six (6) months at the time of entry with a minimum of $500,0,1,0,0,
+grantTest2,revenue on the most recent month’s bank statement..,0,0,0,0,
+grantTest2,The Business must have an active business deposit account used primarily for,0,1,0,0,
+grantTest2,"business purposes and not for personal, family, or household purposes.",0,1,0,0,
+grantTest2,"The Business must be currently active, lawful, have all necessary and required licenses and registrations as required by the state(s) in which it operates.",1,1,0,0,
+grantTest2,The Business must not have defaulted on an account with Credibly.,0,1,0,1,
+grantTest2,The following types of businesses are ineligible to enter:,0,0,0,0,
+grantTest2,not Nonprofit organizations and businesses whose primary revenue is donation-based.,0,1,1,1,
+grantTest2,"not Any business involved, as determined by Credibly in its sole discretion, in any of the prohibited industries listed on Prohibited Industries List.",0,1,0,1,
+grantTest2," not Any business in direct competition with Credibly, in Credibly’s sole discretion.",0,1,0,1,
+grantTest2,not include other financing providers and brokers of small business finance products.,0,0,0,1,
+grantTest2,not Any business that is considering or is under bankruptcy protection or has judicial lien,0,1,0,1,
+grantTest2,"not Any business that is deemed by Credibly in its sole discretion to be offensive, immoral obscene, profane, defamatory, not in keeping with the image of Credibly, could bring Credibly into public disrepute, or in any way impact the good standing or reputation of Any business related to Credibly, Facebook, or LinkedIn, in Credibly’s sole discretion,",0,1,1,1,
+grantTest2,"including but not limited to any parent companies, subsidiaries, divisions, affiliates,",0,0,0,1,
+grantTest2,"partners, advertising or promotional agencies, distributors of sweepstakes materials.",0,0,0,1,
+grantTest2,"In order to enter the Sweepstakes or receive a prize, Entrants must fully comply with and",0,0,0,0,
+grantTest2,"agree to be bound by the Official Rules, arbitration provisions, limitation on rights and",0,0,0,0,
+grantTest2,"remedies, and Credibly’s decisions.",0,0,0,0,
+grantTest2,Winning a prize is contingent upon fulfilling all,0,0,0,0,
+grantTest2,"requirements set forth herein, including consent to a background check, in Credibly’s sole",0,0,0,0,
+synth_01,Applicants must be headquartered in the State of California and have at least 51% of employees residing in California.,1,0,0,0,requirement
+synth_01,Businesses incorporated or primarily operating outside the United States and its territories are not eligible to apply.,1,0,0,0,exclusion
+synth_01,"Eligible applicants are for-profit entities, including LLCs, S-corporations, C-corporations and sole proprietorships, that have been in operation for at least two (2) years.",0,1,0,0,requirement
+synth_01,"Nonprofit organizations, government agencies, franchises and multi-level marketing businesses are ineligible.",0,1,0,0,exclusion
+synth_01,"Priority consideration will be given to businesses owned by veterans, women, or members of socially and economically disadvantaged groups.",0,0,1,0,preference
+synth_01,"This program is not intended for retail, restaurant, or personal-services businesses.",0,0,1,0,exclusion
+synth_01,"To qualify, the business must be at least 51% owned and controlled by one or more women who are U.S. citizens or lawful permanent residents.",1,0,1,0,requirement
+synth_01,"The Foundation is a 501(c)(3) public charity headquartered in Sacramento, California.",0,0,0,1,hard negative
+synth_01,Applications must be submitted by 11:59 p.m. Pacific Time on March 15.,0,0,0,1,hard negative
+synth_01,Grant recipients will be required to submit a brief progress report six months after receiving funds.,0,0,0,1,hard negative
+synth_01,"Since 2015, the program has awarded more than $4 million to women- and minority-owned small businesses across the country.",0,0,0,1,hard negative
+synth_01,"Funds may be used for equipment, inventory, marketing, payroll, or working capital.",0,0,0,1,hard negative
+synth_02,Only legal entities established in an eligible country at the time of the call deadline may participate; see Annex A for the list of eligible countries.,1,0,0,0,requirement
+synth_02,"Entities established in non-associated third countries are not eligible for funding, unless exceptionally approved by the granting authority.",1,0,0,0,exclusion
+synth_02,"The applicant must be a micro, small or medium-sized enterprise (SME) with fewer than 50 employees and an annual turnover below EUR 10 million.",0,1,0,0,requirement
+synth_02,"Public bodies, universities and research organisations cannot act as the lead applicant.",0,1,0,0,exclusion
+synth_02,The call targets companies developing data-driven or artificial intelligence solutions with a clear societal impact.,0,0,1,0,requirement
+synth_02,Projects focused solely on the resale or distribution of existing products fall outside the scope of this call.,0,0,1,0,exclusion
+synth_02,"Start-ups registered in Armenia, Georgia or Moldova for less than three years are particularly encouraged to apply.",1,1,0,0,preference
+synth_02,"The programme is managed by an executive agency based in Brussels, Belgium on behalf of the European Commission.",0,0,0,1,hard negative
+synth_02,Online information sessions will be held in English and broadcast from Vienna and Tbilisi.,0,0,0,1,hard negative
+synth_02,Beneficiaries are encouraged to share data and results through open-access repositories.,0,0,0,1,hard negative
+synth_02,"Previous editions of the call attracted over 1,200 applications from 45 countries.",0,0,0,1,hard negative
+synth_02,"The evaluation committee consists of independent experts with experience in deep tech, finance and entrepreneurship.",0,0,0,1,hard negative
+synth_03,"This opportunity is open to organizations based in the South Caucasus region, including Armenia, Azerbaijan and Georgia.",1,0,0,0,requirement
+synth_03,Applicants located in countries subject to comprehensive U.S. sanctions are ineligible to receive an award.,1,0,0,0,exclusion
+synth_03,"Applicants must be registered nonprofit organizations, social enterprises, or for-profit companies with a demonstrated social mission.",0,1,1,0,requirement
+synth_03,"Individuals, political parties and religious organizations seeking funding for religious activities are not eligible.",0,1,0,0,exclusion
+synth_03,"Preference will be given to projects that use data and technology to improve access to education, healthcare, or financial services.",0,0,1,0,preference
+synth_03,"Proposals that primarily benefit a single company's commercial customers, rather than the broader community, will not be funded.",0,0,1,0,exclusion
+synth_03,Women-led social enterprises operating in Armenia for at least one year are especially encouraged to apply.,1,1,1,0,preference
+synth_03,Our foundation has partnered with local organizations in Yerevan since 2009.,0,0,0,1,hard negative
+synth_03,All proposals must be written in English and should not exceed ten pages.,0,0,0,1,hard negative
+synth_03,Members of our advisory board include women founders and business leaders from across the region.,0,0,0,1,hard negative
+synth_03,"Awards range from $5,000 to $25,000 for a project period of up to twelve months.",0,0,0,1,hard negative
+synth_03,We believe that inclusive economic growth depends on supporting entrepreneurs of all backgrounds.,0,0,0,1,hard negative
+synth_04,"Entrants must be legal residents of the fifty United States or the District of Columbia, excluding residents of Florida, New York and Rhode Island.",1,0,0,0,requirement
+synth_04,Void outside the United States and wherever else prohibited or restricted by law.,1,0,0,0,exclusion
+synth_04,"The applicant company must have generated no more than $1,000,000 in revenue during the most recent fiscal year.",0,1,0,0,requirement
+synth_04,Publicly traded companies and wholly owned subsidiaries of publicly traded companies are not eligible to participate.,0,1,0,0,exclusion
+synth_04,The accelerator is designed for founders building software products for small and medium-sized businesses.,0,0,1,0,requirement
+synth_04,Companies whose primary product is a consumer mobile game or social media application should not apply.,0,0,1,0,exclusion
+synth_04,"To be eligible, a company must be a for-profit startup incorporated in the United States with at least one founder who identifies as Black, Latino or Indigenous.",1,1,1,0,requirement
+synth_04,"The Sponsor's principal place of business is located in San Francisco, California.",0,0,0,1,hard negative
+synth_04,Winners will be notified by email within thirty (30) days of the selection date.,0,0,0,1,hard negative
+synth_04,Odds of winning depend on the number of eligible entries received.,0,0,0,1,hard negative
+synth_04,The Sponsor reserves the right to verify the eligibility of any entrant prior to awarding a prize.,0,0,0,1,hard negative
+synth_04,"Cohort sessions will take place virtually and in person at our Austin, Texas office.",0,0,0,1,hard negative
+grant_04,Commercially aligned quantitative technical objectives and research plan.,0,0,1,,
+grant_04,"NSF wants to see the details of specific research methodology, experiments, prototypes, or tests you must run to demonstrate the potential feasibility of your product or service",0,0,1,,
+grant_04,Your innovation should reflect a fundamentally different approach and be enabled by a novel methodology not currently addressed by existing solutions.,0,0,1,,
+grant_04,Your company must be a small business (fewer than 500 employees) located in the United States.,1,1,1,,
+grant_04,"At least 50% of your company’s equity must be owned by U.S. citizens or permanent residents. NSF does not fund companies that are majority-owned by multiple venture capital firms, private equity firms, or hedge funds, to participate in SBIR and STTR.",1,1,1,,
+grant_04,"All funded work, including work done by consultants and contractors, needs to take place in the United States.",1,1,1,,
+grant_04,The project’s principal investigator (tech lead) must be legally employed at least 20 hours a week by the company seeking funding. The PI doesn’t need any advanced degrees.,0,1,1,,
+grant_04,The principal investigator needs to commit to at least one month (173 hours) of work on a funded project per six months of project duration.,0,1,0,,
+grant_04,"An SBIR/STTR small business awardee must be a business concern – it must be organized as a
+for‐profit concern and meet all the otherrequirements for a “business concern” in 13",0,1,0,,
+grant_04,"Non‐profit entities are not eligible (except as research institution partners with
+an otherwise eligible applicant concern under the STTR Program).",0,1,0,,
+grant_04,"If an awardee is a joint venture, each party to the joint venture must be a concern that satisfies all
+program eligibility requirements regarding type, size, ownership, and control. The only exception is
+for an SBA approved Mentor-Protégé small business joint venture formed in accordance with 13
+C.F.R. § 125.9.",0,1,0,,
+grant_04,"A majority (more than 50%) of your firms’ equity (e.g.,
+stock) must be directly owned and controlled by one of the following:",0,1,0,,
+grant_04,"One or more individuals who are citizens or permanent resident aliens of the U.S.,",1,1,0,,
+grant_04,Other for‐profit small business concerns (each of which is directly owned and controlled by individuals who are citizens or permanent resident aliens of the U.S.).,1,1,0,,
+grant_04,"This includes a single VCOC, HF, or PEF that is itself a small business concern which is more than 50% directly owned and controlled by individuals who are U.S. citizens or permanent resident aliens of the U.S.",1,1,0,,
+grant_04,"This also includes applicants more than 50% directly owned and controlled by ANCs,
+NHOs, or Indian Tribes or by a wholly owned subsidiary of an ANC, NHO, or Indian
+Tribe. ",1,0,0,,
+grant_04,"Each individual you include as part of the eligible ownership
+majority of your company, must be either a citizen or permanent resident alien of the US.",1,0,1,,
+grant_04,"The term “individual” refers only to actual people—it does not refer to companies or other legal entities of any sort. “Permanent resident alien” refers to an alien admitted to the United States as a lawful permanent resident by the U.S. Citizenship and Immigration Services. If a size determination is conducted of your firm, you may be asked to show proof of this ownership.",1,0,1,,
+grant_04," The firm is eligible because it is more than 50% owned by a combination of
+citizens of or permanent resident aliens in the US and other small businesses
+owned by citizens of or permanent resident aliens in the US.",1,1,1,,
+grant_04," The firm is eligible because it is more than 50% owned by a combination of
+other small businesses owned by citizens of or permanent resident aliens in
+the US.",1,1,0,,
+grant_04,"The firm is not eligible because it is not majority owned by citizens of or
+permanent resident aliens in the US or other small businesses owned by
+citizens of or permanent resident aliens in the US. Like example 9, this firm
+would also not be eligible for an award from an agency using section 5107
+authority.",1,1,0,,
+grant_04,"The firm is eligible for agencies using section 5107 authority because a
+majority of the stock is owned by multiple VCOCs, hedge funds, or private
+equity firms and none owns more than 50%.",0,1,1,,
+grant_04,"The firm is eligible for agencies using section 5107 authority because, while
+the other small business “SB1” has the largest share, the firm is more than
+50% owned by more than one VCOC, hedge fund, or private equity firm and
+none has more than 50% ownership.",0,1,1,,
