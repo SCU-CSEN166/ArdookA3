@@ -199,7 +199,7 @@ Mini LM Eligibility Training- Current evaluation
 | Member | Work completed | Result (worked / partly / failed) | Evidence | Next step |
 |---|---|---|---|---|
 | [Name] | [Specific work] | [Status] | [Link] | [Next step] |
-|Olivia |I worked on improving the precision and recall scores in the SimLM model. I did this by experimenting with the prompts I used to generate the relevance scores and being more specific in regards to the type of grants Ardook offers.|Partly, the accuracy scores increased to 72.97% while the precision and recall scores increased significantly by 20% leading to a result of 50% in value. However, the precision and recall scores are still below the goal threshold we wanted to attain. |https://colab.research.google.com/drive/17U42zfK--4KaRpuFYHC9Rnf4bdeD64PD?usp=sharing|Continue to work on the SimLM model to improve the precision and recall values.|
+|Olivia |I worked on improving the precision and recall scores in the SimLM model. I did this by experimenting with the prompts I used to generate the relevance scores and being more specific in regards to the type of grants Ardook offers.|Partly, the accuracy scores increased to 72.97% while the precision and recall scores improved significantly by 20% leading to a result of 50% in value. However, the precision and recall scores are still below the goal threshold we wanted to attain. |https://colab.research.google.com/drive/17U42zfK--4KaRpuFYHC9Rnf4bdeD64PD?usp=sharing|Continue to work on the SimLM model to improve the precision and recall values.|
 
 ---
 
