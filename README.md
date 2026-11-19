@@ -209,7 +209,7 @@ Mini LM Eligibility Training- Current evaluation
 
 ### Peer testing
 - **Team evaluated:** ArdookA2
-- **One thing that worked well:** One thing that worked well is that when testing the model with the synthetic data. Their model was more accurate when it comes to NCDG@5 results.
+- **One thing that worked well:** One thing that worked well is that when testing the model with the synthetic data. Their model was more accurate than our own model in regards to the evaluation metrics.
 <img width="1486" height="816" alt="Screenshot 2026-11-19 at 3 22 57 PM" src="https://github.com/user-attachments/assets/80450c8e-7d8a-4070-9caf-77a40b24e530" />
 
 - **One meaningful failure:**   A meaningful failure is that when we initially tested the local frontend it said that the model didn’t exist.
