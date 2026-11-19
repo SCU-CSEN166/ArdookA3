@@ -172,7 +172,7 @@ Mini LM Eligibility Training- Current evaluation
 |---|---|---|---|---|
 | Olivia | I worked on normalizing the score values from last week, created prediction values for the model, and developed the evaluation metrics as well. | partially, the accuracy was above the goal threshold but precision and recall were not| https://colab.research.google.com/drive/17F2tcFgMOSILFkfg9LDv9CIuKJQ7tjf9?usp=sharing|Combine the results from the summarization model into the input of the SimLM model to create a single baseline. As well as, look into ways to improve the precision and recall outputs too.|
 | David | Prepared and validated the 200-row synthetic dataset and predefined 160/40 split; implemented and ran the leakage-safe MiniLM-versus-BGE ranking evaluation; calculated NDCG@5, Precision@5, and Spearman; exported rankings; analyzed failures; and added 12 tests and reproducibility documentation. | Worked for the synthetic held-out evaluation; MiniLM outperformed BGE, but real-world accuracy remains unverified. | [`results/model_comparison_report.md`](results/model_comparison_report.md), [`results/model_comparison_metrics.csv`](results/model_comparison_metrics.csv), and [`tests/test_grant_comparison.py`](tests/test_grant_comparison.py) | Add a separately verified eligibility stage and evaluate on independently labeled real grants. |
-
+|Naomi| I was out sick this week but worked on improving the training data for the eligibility testing code and ran it to see an improved accuracy compared to a zero shot program|partly worked|See sentences.csv |Data needs further refining, Ardook comparison profile needs more details|
 ---
 
 ## Week 8 — Stress-Test: Reliability on Hidden Data
