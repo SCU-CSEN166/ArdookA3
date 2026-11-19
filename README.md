@@ -209,8 +209,12 @@ Mini LM Eligibility Training- Current evaluation
 
 ### Peer testing
 - **Team evaluated:** ArdookA2
-- **One thing that worked well:** One thing that worked well is that when testing the model with the synthetic data. Their model was more accurate when it comes to NCDG@5 results. 
+- **One thing that worked well:** One thing that worked well is that when testing the model with the synthetic data. Their model was more accurate when it comes to NCDG@5 results.
+<img width="1486" height="816" alt="Screenshot 2026-11-19 at 3 22 57 PM" src="https://github.com/user-attachments/assets/80450c8e-7d8a-4070-9caf-77a40b24e530" />
+
 - **One meaningful failure:**   A meaningful failure is that when we initially tested the local frontend it said that the model didn’t exist.
+<img width="3020" height="976" alt="Screenshot 2026-11-19 at 2 58 07 PM" src="https://github.com/user-attachments/assets/05eb0045-5c19-4ce2-9dcb-ad2eb8c1f0e2" />
+
 - **One actionable recommendation:** One actionable recommendation is to have clear instructions on how to run the local frontend all in one place within the readme so it's easier to access. They should have step by step instructions starting from cloning the repo going all the way to access the front end, specifically they should mention how to open the frontend when the model is already installed.
 - **Feedback received from another team:** The instructions were clear and the models mainly ran smoothly. However, when they tried to test it with the  synthetic data for the eligibility portion of our project, there was no output or there were no logs it only errored out. In addition to that, they mentioned that when using Wave it takes time to reserve GPU computing resources. An area of improvement is to make our program more universal when it comes to the types of inputs the data takes.
 
